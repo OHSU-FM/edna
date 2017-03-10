@@ -1,0 +1,43 @@
+<div class="stats-container">
+<div class='stats' id='s022'>
+    <p class='margin hint small'>
+    </p>
+    <table class='cell-left full borderless center step' id='sec5_sl04_00_0'>
+    <tr>
+      <td class='question' style='width: 70%;'>
+        <span class='hint'>5.03 - </span>
+        Have you experienced any difficulty getting hospital privileges?
+        <br/>
+      </td>
+      <td class='no-wrap'>
+        <div class='padded'>
+          <span class='stat'><a name='q504'></a><%= show_stats('q504', '1') %></span>
+          <label for='q504_1'>Yes</label>
+          <span class='stat'><a name='q504'></a><%= show_stats('q504', '2') %></span>
+          <label for='q504_2'>No</label>
+        </div>
+      </td>
+    </tr>
+    </table>
+    
+    
+    <table class='cell-left full borderless center step' id='sec5_sl04_01_0'>
+    <tr>
+      <td class='question' style='width: 72%;'>
+        <span class='hint'>5.03a - </span>
+        Please describe the difficulties you've experienced:
+        <br/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<span class='stat'><a name='q504_describe'></a><%= show_stats('q504_describe', '') %></span>
+        <%= errors_for('q504_describe') %>
+      </td>
+    </tr>
+    </table>
+    
+    
+  </div>
+</div>
+<div class="break"></div>

@@ -1,0 +1,35 @@
+<h2>Assignments</h2>
+<div class="row">
+    <div class="col-lg-9 col-md-12 main fade-in two">
+    <% if @active_assignments.empty? %>
+        <h4>No active assignments</h4>
+    <% else %>    
+        <ul class="list-unstyled table-striped">
+            <% @active_assignments.each do |assig| %>
+            <li>
+                <%= link_to assig.survey_assignment.title, (assig.started? ? assig.url : assig.new_url), :target=>:_blank %>
+                <%= assig.status_str %>
+            </li>
+            <% end %>
+        </ul>
+    <% end %>
+    </div>
+    <div class="col-lg-3 sidebar fade-in one hidden-md hidden-sm hidden-xs">
+        <div class="bs-callout bs-callout-primary" id="assignments-overview">
+            <% if @completed_assignments.empty? %>
+                <h3>No Completed Assignments</h3>
+            <% else %>
+                <h3>Completed Assignments</h3>
+                <ul class="list-unstyled">
+                    <% @completed_assignments.each do |assig| %>
+                    <li>
+                        <%= assig.lime_survey.title %>
+                        <small><%= assig.completed %></small>
+                    </li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,15 @@
+#assignments-overview{
+	li{
+		&:only-child{
+			border-bottom:none;
+		}
+		border-bottom: 1px solid #ddd;
+		small{
+color: #777;
+		}
+	}
+}
+
+dl.dl-horizontal{
+	dt{margin-bottom:32px;}
+}

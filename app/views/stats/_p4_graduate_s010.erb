@@ -1,0 +1,92 @@
+<div class="stats-container">
+<div class='stats' id='s010'>
+    <div class='step' id='sec2_sl4_01_0'><p class='margin question'>
+      <span class='hint'>2.07 - </span>
+      Please estimate the percentages of each of the following payors in
+      your patient mix.
+    </p><p class='margin center hint'>
+      <small>
+      <i>
+        The sum total of all lines should be 100%.<br/>
+        If you have no patients for a particular payor, please enter zero.
+      </i>
+      </small>
+    </p><table class='cell-left full center' style='width: 60%;'>
+    <tr>
+      <th>Payor Type</th>
+      <th>Percentage</th>
+    </tr>
+    <tr>
+      <td class='no-wrap question' style='width: 60%;'>
+        Private Insurance
+      </td>
+      <td class='center'>
+        <span class='stat'><a name='q207a'></a><%= show_stats('q207a', '') %></span> %
+        <%= errors_for('q207a') %>
+      </td>
+    </tr>
+    <tr>
+      <td class='question'>
+        Medicaid
+      </td>
+      <td class='center'>
+        <span class='stat'><a name='q207b'></a><%= show_stats('q207b', '') %></span> %
+        <%= errors_for('q207b') %>
+      </td>
+    </tr>
+    <tr>
+      <td class='question'>
+        Medicare
+      </td>
+      <td class='center'>
+        <span class='stat'><a name='q207c'></a><%= show_stats('q207c', '') %></span> %
+        <%= errors_for('q207c') %>
+      </td>
+    </tr>
+    <tr>
+      <td class='question'>
+        HMO / Managed Care
+      </td>
+      <td class='center'>
+        <span class='stat'><a name='q207d'></a><%= show_stats('q207d', '') %></span> %
+        <%= errors_for('q207d') %>
+      </td>
+    </tr>
+    <tr>
+      <td class='question'>
+        Self-Pay
+      </td>
+      <td class='center'>
+        <span class='stat'><a name='q207e'></a><%= show_stats('q207e', '') %></span> %
+        <%= errors_for('q207e') %>
+      </td>
+    </tr>
+    <tr>
+      <td class='no-wrap question'>
+        <span class='stat'><a name='q207f_other_present'></a><%= show_stats('q207f_other_present', '1') %></span>
+        <label for='q207f_other_present'>Other</label>
+        <label class='hint' for='q207f_other_present'>&#8212;</label>
+        <span class='stat'><a name='q207f_other'></a><%= show_stats('q207f_other', '') %></span>
+        <%= errors_for('q207f_other') %>
+      </td>
+      <td class='center'>
+        <span class='stat'><a name='q207f'></a><%= show_stats('q207f', '') %></span> %
+        <%= errors_for('q207f') %>
+      </td>
+    </tr>
+    <tr>
+      <td class='hint padded center'>
+        Total
+      </td>
+      <td class='center padded'>
+        <span id='s010_total'>0.0</span> %
+      </td>
+    </tr>
+    </table>
+    
+    
+    
+    </div>
+  </div>
+</div>
+<div class="break"></div>

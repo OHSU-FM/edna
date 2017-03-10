@@ -1,0 +1,96 @@
+<div class="stats-container">
+<div class='stats' id='s005'>
+    <div class='step' id='sec1_sl4_00_0'><p class='margin' style='margin-bottom: 0;'>
+    </p>
+    
+    </div>
+    <table class='cell-left full borderless center step' id='sec1_sl4_01_0'>
+    <tr>
+      <td class='question' style='width: 50%;'>
+        <span class='hint'>1.05 - </span>
+        What is your age?<br/>
+      </td>
+      <td>
+        <div class='no-wrap padded'>
+          <span class='stat'><a name='q105'></a><%= show_stats('q105', '').html_safe() %></span> Years Old
+          <%= errors_for('q105') %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class='question'>
+        <span class='hint'>1.06 - </span>
+        What is your gender?
+        <br/>
+      </td>
+      <td>
+        <div class='no-wrap padded'>
+          <span class='stat'><a name='q106'></a><%= show_stats('q106', '1') %></span>
+          <label for='q106_1'>Female</label>
+          <span class='stat'><a name='q106'></a><%= show_stats('q106', '2') %></span>
+          <label for='q106_2'>Male</label>
+        </div>
+      </td>
+    </tr>
+   <tr>
+      <td class='question'>
+        <span class='hint'>1.07 - </span>
+        What is your race?<br/>
+        <small><i>(Check all that apply)</i></small>
+        <br/>
+      </td>
+      <td>
+        <div class='no-wrap padded'>
+         <span class='stat'><a name='q107_1'></a><%= show_stats('q107_1', '1') %></span>
+         <label for='q107_1'>White</label>
+         <span class='stat'><a name='q107_2'></a><%= show_stats('q107_2', '1') %></span>
+         <label for='q107_2'>Black</label>
+         <span class='stat'><a name='q107_3'></a><%= show_stats('q107_3', '1') %></span>
+         <label for='q107_3'>Hispanic</label>
+         <br/>
+         <span class='stat'><a name='q107_4'></a><%= show_stats('q107_4', '1') %></span>
+         <label for='q107_4'>Asian / Pacific Islander</label>
+         <br/>
+         <span class='stat'><a name='q107_5'></a><%= show_stats('q107_5', '1') %></span>
+         <label for='q107_5'>American Indian or Alaska Native </label>
+         <br/>
+         <span class='stat'><a name='q107_6'></a><%= show_stats('q107_6', '1') %></span>
+         <label for='q107_6'>Middle Eastern</label>
+         <br/>
+         <span class='stat'><a name='q107_7'></a><%= show_stats('q107_7', '1') %></span>
+         <label for='q107_7'>Other</label> &#8212;
+         <span class='stat'><a name='q107_other'></a><%= show_stats('q107_other', '') %></span>
+         <%= errors_for('q107_other') %>
+        </div>
+      </td>
+    </tr>
+   <tr>
+      <td class='question'>
+        <span class='hint'>1.08 - </span>
+        What is your marital status?<br/>
+        <small><i>(Choose only one)</i></small>
+        <br/>
+      </td>
+      <td>
+        <div class='no-wrap padded'>
+         <span class='stat'><a name='q108'></a><%= show_stats('q108', '1') %></span>
+         <label for='q108_1'>Single, Never Married</label>
+         <br/>
+         <span class='stat'><a name='q108'></a><%= show_stats('q108', '2') %></span>
+         <label for='q108_2'>Married / Partnered</label>
+         <br/>
+         <span class='stat'><a name='q108'></a><%= show_stats('q108', '3') %></span>
+         <label for='q108_3'>Separated</label>
+         <span class='stat'><a name='q108'></a><%= show_stats('q108', '4') %></span>
+         <label for='q108_4'>Divorced</label>
+         <span class='stat'><a name='q108'></a><%= show_stats('q108', '5') %></span>
+         <label for='q108_5'>Widowed</label>
+        </div>
+      </td>
+    </tr>
+    </table>
+    
+    
+  </div>
+</div>
+<div class="break"></div>

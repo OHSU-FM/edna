@@ -1,0 +1,32 @@
+<div id="top">
+    <h1 style="float: left;">
+      <%= @year %> Graduate Survey  
+    </h1>
+    <ul class="list-inline" style="float:right; font-size: 0.8em; padding:1em;">
+        <li>
+        </li>
+        <li>
+            <!-- Residency Program Selector -->
+            <div>
+              <b>Program:</b>
+              <br />
+              <select class="show_if_jsEnabled" id="stat_ids">
+                <%= options_for_select(@select_data, @id) %>
+              </select>
+            </div>
+        </li>
+        <li>
+              <b>Last Updated:</b>
+              <br />
+              <input type="text"
+                size="25" disabled="disabled"
+                style="font-size: 0.9em; padding: 0.1em;"
+                value="<%= DateTime.now.strftime('%m/%d/%Y at %I:%M%p').downcase %>" />
+        </li>
+        <li>
+            <button type="button" class="btn btn-xs btn-primary" onclick="window.print();">Print</button>
+        </li>
+    </ul>    
+    <div style="clear: both;"> </div>
+</div>
+

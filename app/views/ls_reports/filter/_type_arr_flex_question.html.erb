@@ -1,0 +1,6 @@
+<% question.stats.sub_stats.each do |stats| %>
+    <% stats_u = question_u.stats.sub_stats.find{|st|st.qid == stats.qid} %>
+    <p>&nbsp</p>
+    <h4><%= stats.question.question.html_safe %></h4>
+    <%= render :partial=>'ls_reports/filter/type_arr_flex_child_question', :locals=>{:question_u=>stats_u.question, :question=>stats.question} %>
+<% end %>

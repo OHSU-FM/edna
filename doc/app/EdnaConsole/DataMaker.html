@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class EdnaConsole::DataMaker - Rails Application Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-cols_for_group">#cols_for_group</a>
+    
+    <li ><a href="#method-i-dataset">#dataset</a>
+    
+    <li ><a href="#method-i-entities">#entities</a>
+    
+    <li ><a href="#method-i-entities_for_group">#entities_for_group</a>
+    
+    <li ><a href="#method-i-fk_join_arr">#fk_join_arr</a>
+    
+    <li ><a href="#method-i-generate_dataset">#generate_dataset</a>
+    
+    <li ><a href="#method-i-group_query_builder">#group_query_builder</a>
+    
+    <li ><a href="#method-i-groups">#groups</a>
+    
+    <li ><a href="#method-i-iso_query_builder">#iso_query_builder</a>
+    
+    <li ><a href="#method-i-multi_query_builder">#multi_query_builder</a>
+    
+    <li ><a href="#method-i-pk_join_arr">#pk_join_arr</a>
+    
+    <li ><a href="#method-i-q_columns">#q_columns</a>
+    
+    <li ><a href="#method-i-query_type">#query_type</a>
+    
+    <li ><a href="#method-i-query_type_enum">#query_type_enum</a>
+    
+    <li ><a href="#method-i-query_type_str">#query_type_str</a>
+    
+    <li ><a href="#method-i-question_details">#question_details</a>
+    
+    <li ><a href="#method-i-questions_for_entity">#questions_for_entity</a>
+    
+    <li ><a href="#method-i-questions_for_group">#questions_for_group</a>
+    
+    <li ><a href="#method-i-select_arr">#select_arr</a>
+    
+    <li ><a href="#method-i-table_names">#table_names</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-EdnaConsole::DataMaker">
+  <h1 id="class-EdnaConsole::DataMaker" class="class">
+    class EdnaConsole::DataMaker
+  </h1>
+
+  <section class="description">
+    
+<p>Class: <a href="DataMaker.html">DataMaker</a></p>
+
+<p>The <a href="DataMaker.html">DataMaker</a> class is an SQL query generator
+that is used to create datasets that are used with the <a
+href="../Chart.html">Chart</a> model and the associated <a
+href="../Chart.html">Chart</a> Builder web interface. TODO: Insert stub
+data when missing questions</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-query" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">query</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-questions" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">questions</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-user" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">user</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(user, questions)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">user</span>, <span class="ruby-identifier">questions</span>
+    <span class="ruby-comment"># select only series that are ready for data</span>
+    <span class="ruby-ivar">@questions</span> = <span class="ruby-identifier">questions</span>
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-dataset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dataset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create dataset or return a cached copy of it</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dataset-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dataset</span>
+    <span class="ruby-ivar">@dataset</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">generate_dataset</span> 
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_dataset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_dataset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Re/Generate the dataset and convert/map the dataset to an array of arrays
+with the column headers as the first row</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_dataset-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_dataset</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">query</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-comment"># execute the query</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-constant">Array</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">query</span>)
+    <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-comment"># Convert the query into an easy to read format</span>
+    <span class="ruby-ivar">@dataset</span> = [<span class="ruby-identifier">data</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">keys</span>]<span class="ruby-operator">+</span><span class="ruby-identifier">data</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">dd</span><span class="ruby-operator">|</span><span class="ruby-identifier">dd</span>.<span class="ruby-identifier">values</span>}
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@dataset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-query_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">query_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check query type</p>
+          
+          
+
+          
+          <div class="method-source-code" id="query_type-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">query_type</span>
+    <span class="ruby-comment"># Execute appropriate query builder</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">size</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">2</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">'Series Error'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-query_type_enum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">query_type_enum</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Produce enumerator for <a
+href="DataMaker.html#method-i-query_type">#query_type</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="query_type_enum-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">query_type_enum</span>
+    <span class="ruby-keyword">return</span> {
+        <span class="ruby-value">0</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">'empty'</span>,
+        <span class="ruby-value">1</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">'iso'</span>,
+        <span class="ruby-value">2</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">'multi'</span>
+    }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-query_type_str" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">query_type_str</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert the <a href="DataMaker.html#method-i-query_type">#query_type</a> to
+its string representation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="query_type_str-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">query_type_str</span>
+    <span class="ruby-identifier">query_type_enum</span>[<span class="ruby-identifier">query_type</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-question_details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">question_details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show details for questions</p>
+          
+          
+
+          
+          <div class="method-source-code" id="question_details-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">question_details</span>
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">entities</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entity</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">group</span> = <span class="ruby-identifier">entity</span>.<span class="ruby-identifier">meta_attribute_entity_group</span>
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span>({
+            <span class="ruby-value">:questions=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">questions_for_entity</span>(<span class="ruby-identifier">entity</span>).<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span><span class="ruby-identifier">q</span>.<span class="ruby-identifier">attribute_name</span>},
+            <span class="ruby-value">:table=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">entity</span>.<span class="ruby-identifier">entity_type</span>, 
+            <span class="ruby-value">:year=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">entity</span>.<span class="ruby-identifier">reference_year</span>,
+            <span class="ruby-value">:group=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">group</span>.<span class="ruby-identifier">group_name</span>,
+            <span class="ruby-value">:parent_table=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">group</span>.<span class="ruby-identifier">parent_table</span>,
+            <span class="ruby-value">:link_to=</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">group</span>.<span class="ruby-identifier">parent_group</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">parent_group</span>.<span class="ruby-identifier">parent_table</span>)
+        })
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-cols_for_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cols_for_group</span><span
+            class="method-args">(group)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get all of the columns for this group</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cols_for_group-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cols_for_group</span> <span class="ruby-identifier">group</span>
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">questions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">q</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">q</span>.<span class="ruby-identifier">meta_attribute_entity_group</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">group</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-entities" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">entities</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List all of the entities</p>
+          
+          
+
+          
+          <div class="method-source-code" id="entities-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">entities</span>
+    <span class="ruby-ivar">@entities</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">questions</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">question</span><span class="ruby-operator">|</span><span class="ruby-identifier">question</span>.<span class="ruby-identifier">meta_attribute_entity</span>}.<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-entities_for_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">entities_for_group</span><span
+            class="method-args">(group)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all of the entities for this group that we also have questions for</p>
+          
+          
+
+          
+          <div class="method-source-code" id="entities_for_group-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">entities_for_group</span> <span class="ruby-identifier">group</span>
+    <span class="ruby-identifier">questions_for_group</span>(<span class="ruby-identifier">group</span>).<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">questions</span><span class="ruby-operator">|</span><span class="ruby-identifier">questions</span>.<span class="ruby-identifier">meta_attribute_entity</span>}.<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fk_join_arr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fk_join_arr</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Variables for foreign key joins</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fk_join_arr-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fk_join_arr</span>
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">group_alias</span> = <span class="ruby-node">&quot;#{group.parent_table}_#{idx}&quot;</span>
+        <span class="ruby-identifier">group_query</span> = <span class="ruby-identifier">group_query_builder</span>(<span class="ruby-identifier">group</span>)
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;JOIN (\n#{group_query}\n\t) AS #{group_alias}_fk&quot;</span>
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;ON #{group_alias}_fk.#{self.fkeys[group.parent_table]}=#{group.parent_table}.#{group.parent_table_pk}&quot;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x_group</span>, <span class="ruby-identifier">x_idx</span><span class="ruby-operator">|</span>
+                <span class="ruby-comment">#next if x_idx &lt; idx</span>
+                <span class="ruby-identifier">x_group_alias</span> = <span class="ruby-node">&quot;#{x_group.parent_table}_#{x_idx}&quot;</span>
+                <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;\tAND #{x_group_alias}_fk.year = #{group_alias}_fk.year&quot;</span> 
+                <span class="ruby-keyword">break</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-group_query_builder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">group_query_builder</span><span
+            class="method-args">(group)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Collect all of the columns that we need to select for this group</p>
+          
+          
+
+          
+          <div class="method-source-code" id="group_query_builder-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">group_query_builder</span> <span class="ruby-identifier">group</span>
+    <span class="ruby-identifier">query_arr</span> = []
+    <span class="ruby-identifier">entities_for_group</span>(<span class="ruby-identifier">group</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entity</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">cols</span> = []
+        <span class="ruby-identifier">questions_for_entity</span>(<span class="ruby-identifier">entity</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">question</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">cols</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;#{question.attribute_name}&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">cols</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;#{entity.reference_year} AS year&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">entity</span>.<span class="ruby-identifier">reference_year</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">cols</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;#{entity.entity_type_fk}&quot;</span>
+        <span class="ruby-comment"># convert to sql</span>
+        <span class="ruby-identifier">query_arr</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;SELECT #{cols.join(',')} FROM #{entity.entity_type}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">query_arr</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\nUNION ALL\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-groups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">groups</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Find the number of unique entity groups in all series</p>
+          
+          
+
+          
+          <div class="method-source-code" id="groups-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">groups</span>
+    <span class="ruby-ivar">@groups</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">questions</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">question</span><span class="ruby-operator">|</span><span class="ruby-identifier">question</span>.<span class="ruby-identifier">meta_attribute_entity_group</span>}.<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-iso_query_builder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">iso_query_builder</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Query builder used when there is only a single data source</p>
+          
+          
+
+          
+          <div class="method-source-code" id="iso_query_builder-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">iso_query_builder</span>
+    <span class="ruby-identifier">group_alias</span> = <span class="ruby-node">&quot;#{groups.first.parent_table}&quot;</span>
+    <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">questions</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">question</span><span class="ruby-operator">|</span><span class="ruby-identifier">question</span>.<span class="ruby-identifier">attribute_name</span>}.<span class="ruby-identifier">uniq</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;SELECT 
+        #{attrs.join(',')}, year
+    FROM (#{group_query_builder groups.first}) AS #{group_alias}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multi_query_builder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multi_query_builder</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Query builder used when there are multiple types of data sources</p>
+          
+          
+
+          
+          <div class="method-source-code" id="multi_query_builder-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 163</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier">multi_query_builder</span>
+            <span class="ruby-comment"># Create group alias for the first group</span>
+            <span class="ruby-identifier">first_group_alias</span> = <span class="ruby-node">&quot;#{groups.first.parent_table}_0&quot;</span>
+
+            <span class="ruby-identifier">query</span> = <span class="ruby-node">&quot;
+SELECT
+\t#{select_arr.join(&quot;,\n\t&quot;)}
+FROM \t#{groups.first.parent_table}
+#{pk_join_arr.join(&quot;\n&quot;)}
+#{fk_join_arr.join(&quot;\n&quot;)};&quot;</span>
+
+            <span class="ruby-keyword">return</span> <span class="ruby-identifier">query</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pk_join_arr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pk_join_arr</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Variables for primary key joins</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pk_join_arr-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pk_join_arr</span>
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">joined_tables</span> = [<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">parent_table</span>]
+    <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">joined_tables</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">parent_table</span>
+        <span class="ruby-identifier">joined_tables</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">parent_table</span>
+        <span class="ruby-identifier">group_alias</span> = <span class="ruby-node">&quot;#{group.parent_table}_#{idx}&quot;</span>
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;\nJOIN #{group.parent_table}\n\tON #{group.parent_table}.#{self.pkeys[group.parent_table]} = #{group.parent_group.parent_table}.#{group.parent_group.parent_table_pk}\n&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-q_columns" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">q_columns</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get all of the column names (unique)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="q_columns-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">q_columns</span> 
+    <span class="ruby-ivar">@q_columns</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">questions</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">question</span><span class="ruby-operator">|</span><span class="ruby-identifier">question</span>.<span class="ruby-identifier">attribute_name</span>}.<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-questions_for_entity" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">questions_for_entity</span><span
+            class="method-args">(entity)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get all of the questions for this entity</p>
+          
+          
+
+          
+          <div class="method-source-code" id="questions_for_entity-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">questions_for_entity</span> <span class="ruby-identifier">entity</span>
+    <span class="ruby-identifier">questions</span>.<span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">question</span><span class="ruby-operator">|</span><span class="ruby-identifier">question</span>.<span class="ruby-identifier">meta_attribute_entity</span><span class="ruby-operator">==</span><span class="ruby-identifier">entity</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-questions_for_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">questions_for_group</span><span
+            class="method-args">(group)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get all of the questions for this group</p>
+          
+          
+
+          
+          <div class="method-source-code" id="questions_for_group-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">questions_for_group</span> <span class="ruby-identifier">group</span>
+    <span class="ruby-identifier">questions</span>.<span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">question</span><span class="ruby-operator">|</span><span class="ruby-identifier">question</span>.<span class="ruby-identifier">meta_attribute_entity_group</span><span class="ruby-operator">==</span><span class="ruby-identifier">group</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-select_arr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_arr</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Variables for SELECT statement</p>
+          
+          
+
+          
+          <div class="method-source-code" id="select_arr-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select_arr</span>
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;#{first_group_alias}_fk.year&quot;</span>              <span class="ruby-comment"># Manually add the year of the survey</span>
+    <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">group_alias</span> = <span class="ruby-node">&quot;#{group.parent_table}_#{idx}&quot;</span>            <span class="ruby-comment"># Calculate the group alias for this table</span>
+        <span class="ruby-identifier">questions_for_group</span>(<span class="ruby-identifier">group</span>).<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">question</span><span class="ruby-operator">|</span><span class="ruby-identifier">question</span>.<span class="ruby-identifier">attribute_name</span>}.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr_name</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-node">&quot;#{group_alias}_fk.#{attr_name}&quot;</span>    <span class="ruby-comment"># </span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#select_arr.push &quot;#{group.parent_table}.#{group.parent_table_pk}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-table_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">table_names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List all of the table names associated with this data maker query</p>
+          
+          
+
+          
+          <div class="method-source-code" id="table_names-source">
+            <pre><span class="ruby-comment"># File lib/edna_console/data_maker.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">table_names</span>
+    <span class="ruby-ivar">@table_names</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">entities</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">entity</span><span class="ruby-operator">|</span><span class="ruby-identifier">entity</span>.<span class="ruby-identifier">model</span>.<span class="ruby-identifier">table_name</span>}.<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

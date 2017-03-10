@@ -1,0 +1,82 @@
+<div class="stats-container">
+<h3 id="s020-top">Scope of Practice</h3>
+<div class='stats' id='s020'>
+    <p class='margin hint small'>
+    </p>
+    <table class='cell-left full borderless center step' id='sec5_sl03_00_0'>
+    <tr>
+      <td class='question' style='width: 70%;'>
+        <span class='hint'>5.01 - </span>
+        Do you currently practice maternity care, including deliveries?
+        <br/>
+      </td>
+      <td class='no-wrap'>
+        <div class='padded'>
+          <span class='stat'><a name='q503'></a><%= show_stats('q503', '1') %></span>
+          <label for='q503_1'>Yes</label>
+          <span class='stat'><a name='q503'></a><%= show_stats('q503', '2') %></span>
+          <label for='q503_2'>No</label>
+        </div>
+      </td>
+    </tr>
+    </table>
+    
+    
+    <table class='cell-left full borderless center step' id='sec5_sl03_01_0'>
+    <tr>
+      <td class='question' colspan='2' style='width: 72%;'>
+        Approximately how many babies did <em>you</em> deliver in the past year?
+        <br/>
+      </td>
+    </tr>
+    </table><table class='cell-left borderless center step' id='sec5_sl03_01_1' style='width: 50%;'>
+    <tr>
+      <td class='question'>
+        <div style='padding-left: 2em;'>
+          <span class='hint'>5.01a - </span>
+          Vaginal Deliveries
+        </div>
+      </td>
+      <td>
+        <span class='stat'><a name='q503a'></a><%= show_stats('q503a', '') %></span>
+        <%= errors_for('q503a') %>
+      </td>
+    </tr>
+    <tr>
+      <td class='question'>
+        <div style='padding-left: 2em;'>
+          <span class='hint'>5.01b - </span>
+          C-section deliveries &#8212; as primary surgeon
+        </div>
+      </td>
+      <td>
+        <span class='stat'><a name='q503b'></a><%= show_stats('q503b', '') %></span>
+        <%= errors_for('q503b') %>
+      </td>
+    </tr>
+    </table>
+    
+    
+    
+    <table class='cell-left full borderless center step' id='sec5_sl03_02_0'>
+    <tr>
+      <td class='question' style='width: 70%;'>
+        <span class='hint'>5.01c - </span>
+        Do other members of your practice group deliver babies?
+        <br/>
+      </td>
+      <td class='no-wrap'>
+        <div class='padded'>
+          <span class='stat'><a name='q503_group'></a><%= show_stats('q503_group', '1') %></span>
+          <label for='q503_group_1'>Yes</label>
+          <span class='stat'><a name='q503_group'></a><%= show_stats('q503_group', '2') %></span>
+          <label for='q503_group_2'>No</label>
+        </div>
+      </td>
+    </tr>
+    </table>
+    
+    
+  </div>
+</div>
+<div class="break"></div>

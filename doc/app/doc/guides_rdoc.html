@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>guides - Rails Application Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Directions+for+adding+new+data+sets+to+Edna+Console">Directions for adding new data sets to Edna Console</a>
+    <li><a href="#label-Part+I.+Exporting+data+and+generating+a+test+dataset">Part I. Exporting data and generating a test dataset</a>
+    <li><a href="#label-1.%29+Generate+dataset+CSV+file">1.) Generate dataset CSV file</a>
+    <li><a href="#label-2.%29+Generate+dataset+metadata+CSV+file">2.) Generate dataset metadata CSV file</a>
+    <li><a href="#label-3.%29+Modify+Makefile+and+add+new+paths">3.) Modify Makefile and add new paths</a>
+    <li><a href="#label-4.%29+Generate+new+migration+for+dataset">4.) Generate new migration for dataset</a>
+    <li><a href="#label-Part+II+-+Changes+to+the+PCOR+website">Part II - Changes to the PCOR website</a>
+    <li><a href="#label-Affected+Files%3A">Affected Files:</a>
+    <li><a href="#label-1.%29+Add+table+name+to+rails_pcor%2Fapp%2Fcontroller%2Freport_controller.rb%3A">1.) Add table name to rails_pcor/app/controller/report_controller.rb:</a>
+    <li><a href="#label-2.%29+Add+Survey+to+the+Instruments+directory%3A">2.) Add Survey to the Instruments directory:</a>
+    <li><a href="#label-3.%29+Changes+to+stats+helper%3A">3.) Changes to stats helper:</a>
+    <li><a href="#label-Part+III+-++++Rebuild+the+database%3A">Part III -    Rebuild the database:</a>
+    <li><a href="#label-FAQ%3A">FAQ:</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../README_rdoc.html">README</a>
+  
+    <li><a href="../doc/guides_rdoc.html">guides</a>
+  
+    <li><a href="../doc/rails_rdoc.html">rails</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page doc/guides.rdoc">
+
+<p><strong>Date:</strong> 2014-08-19</p>
+
+<p><strong>Author:</strong> Bill Hatt</p>
+
+<p>Easily edit online at: <a
+href="http://github-preview.herokuapp.com">github-preview.herokuapp.com</a>/</p>
+
+<h1 id="label-Directions+for+adding+new+data+sets+to+Edna+Console">Directions for adding new data sets to Edna Console<span><a href="#label-Directions+for+adding+new+data+sets+to+Edna+Console">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<h2 id="label-Part+I.+Exporting+data+and+generating+a+test+dataset">Part I. Exporting data and generating a test dataset<span><a href="#label-Part+I.+Exporting+data+and+generating+a+test+dataset">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<h4 id="label-1.%29+Generate+dataset+CSV+file">1.) Generate dataset CSV file<span><a href="#label-1.%29+Generate+dataset+CSV+file">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p>Database export of the data that we want to add to the PCOR site. For
+example:</p>
+
+<pre>COPY(SELECT * FROM v_export_data) TO STDOUT WITH CSV HEADER;</pre>
+</li><li>
+<p>Copy the resultant csv file to ./db/data</p>
+</li><li>
+<p>This file is used by the `Makefile`. The first step is to generate the
+dataset that you would like to add to Edna.</p>
+</li><li>
+<p>If this is a dataset that has already been created for previous years you
+should make sure that the new dataset has the same columns as the old
+datasets</p>
+</li><li>
+<p>It is not necessary to use the exact same column order as long as you
+import the data with the csv_to_sql.rb tool. The standard CSV import tool
+that comes with PSQL assumes that the columns are in order. But this has
+been fixed.</p>
+<ul><li>
+<p>For example if you want to add 2009 grad survey and we already have 2008
+grad survey dataset (in ./data) then you would create an sql statement that
+would output the same columned CSV file in ./data.</p>
+</li></ul>
+</li></ul>
+
+<h4 id="label-2.%29+Generate+dataset+metadata+CSV+file">2.) Generate dataset metadata CSV file<span><a href="#label-2.%29+Generate+dataset+metadata+CSV+file">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p>This file is used by the `Makefile`</p>
+</li><li>
+<p>The dataset metadata file outlines the codebook for the dataset</p>
+</li><li>
+<p>If this is just a new year of data and the questions are EXACTLY the same
+just copy an old metadata file and change the table name to a name for the
+new dataset.</p>
+</li></ul>
+
+<h4 id="label-3.%29+Modify+Makefile+and+add+new+paths">3.) Modify Makefile and add new paths<span><a href="#label-3.%29+Modify+Makefile+and+add+new+paths">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>-   The 'Makefile' contains the build instructions for adding the new dataset to the website
+
+-   It contains path information for each CSV data/metadata file
+
+-   Add the new paths of your data/metadata files to the 'data' section of the Makefile
+
+-   It also specifies the DB that will be used to store new information when `make` is run
+  you can change this database to dump the contents somewhere else</pre>
+
+<h4 id="label-4.%29+Generate+new+migration+for+dataset">4.) Generate new migration for dataset<span><a href="#label-4.%29+Generate+new+migration+for+dataset">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>-   Create a migration file for the new dataset (located in db/migrations/100-198--***)
+
+-   If this is just a new year of data with EXACTLY the same columns as collected in previous years
+  just copy the create and comments section for your tables previous year into a text file, change 
+  the names to a new year and copy the result back to your new migration file.
+
+--  If it is not a new year you will need to create a new table definition and meta data for that table.
+    See other migrations in db/migrations for details and examples.</pre>
+
+<h2 id="label-Part+II+-+Changes+to+the+PCOR+website">Part II - Changes to the PCOR website<span><a href="#label-Part+II+-+Changes+to+the+PCOR+website">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>In order for the new data to be accessible there are a few small changes
+that need to be made to the site.</p>
+
+<h4 id="label-Affected+Files%3A">Affected Files:<span><a href="#label-Affected+Files%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre># Various constants need to be updated to include the new dataset
+./app/controllers
+    ./reports_controller.rb
+    ./stats_controller.rb
+
+# Add a PDF of the new instrument here
+./public
+    ./instruments/
+
+# Various constants need to be updated to include the new dataset
+./app/helpers
+    ./reports_helper.rb
+    ./stats_helper.rb
+
+# Create a new table here (in xxxx file), and modify other files to know about new dataset
+./db/data-migrations
+    ./xxxx_create_yx_responses.sql
+    ./7999_load_seed_data.sh
+    ./9900_validate_resident_responses.rb
+    ./9901_validate_graduate_responses.rb
+    ./9999_gen_statistics.sql
+
+# Review to make sure nothing needs to change
+./app/views
+    ./reports
+        ./show.html.erb</pre>
+
+<h4 id="label-1.%29+Add+table+name+to+rails_pcor%2Fapp%2Fcontroller%2Freport_controller.rb%3A">1.) Add table name to rails_pcor/app/controller/report_controller.rb:<span><a href="#label-1.%29+Add+table+name+to+rails_pcor%2Fapp%2Fcontroller%2Freport_controller.rb%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p>Inside of the report controller index function there is a dictionary object
+that lists the various tables that can be selected. Add an appropriate
+key/val pair for your new dataset.</p>
+</li><li>
+<p>Also inside of this file is a variable @max_year, this needs to be
+incremented if it is a new year of data</p>
+</li></ul>
+
+<h4 id="label-2.%29+Add+Survey+to+the+Instruments+directory%3A">2.) Add Survey to the Instruments directory:<span><a href="#label-2.%29+Add+Survey+to+the+Instruments+directory%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p>It is expected/required that the instrument also be available for the
+collected data</p>
+</li><li>
+<p>Add link to this new instrument in
+./rails_pcor/app/controller/report_controller.erb</p>
+</li><li>
+<p>There is a bug/feature in:</p>
+
+<pre>./app/views/report/show.html.erb
+./app/controllers/report_controller.rb</pre>
+</li><li>
+<p>The function ‘get_type_for_year’ will block/hide the ‘year over year’ data
+from showing up if there isn’t a file to download.</p>
+</li></ul>
+
+<h4 id="label-3.%29+Changes+to+stats+helper%3A">3.) Changes to stats helper:<span><a href="#label-3.%29+Changes+to+stats+helper%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>-   Stats pages depend on get_stats helper
+-   Need to add stuff to this helper.</pre>
+
+<h2 id="label-Part+III+-++++Rebuild+the+database%3A">Part III -    Rebuild the database:<span><a href="#label-Part+III+-++++Rebuild+the+database%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Run the following command in the rails root directory to rebuild the
+database.</p>
+
+<pre>$ make all</pre>
+<ul><li>
+<p>This will wipe and rebuild <strong>only</strong> the dataset portion of the
+website. All other things like the dashboards, users and charts tables
+should be left untouched.</p>
+</li></ul>
+
+<p>Restart Apache</p>
+
+<h2 id="label-FAQ%3A">FAQ:<span><a href="#label-FAQ%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Random crash on running statistics -  Newer versions of postgreSQL have
+removed automatic typecasting and script may need some tweaking.</p>
+<ul><li>
+<p>Issue was fixed by creating new transform.nullify(integer) function</p>
+</li></ul>
+</li></ul>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

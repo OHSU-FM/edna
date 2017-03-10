@@ -1,0 +1,42 @@
+<div id="top">
+    <h1 style="float: left;">
+      <%= @year %> Graduate Survey  
+    </h1> 
+    <ul>
+        <li>
+            print here
+        </li>
+        <li>
+            <%= render :partial => 'graduate_year_select' %>
+        </li>
+        <li>
+            <!-- Residency Program Selector -->
+            <div style="float: right; font-size: 0.8em; padding: 1em;">
+              <b>Program:</b>
+              <br />
+              <ul class="hide_if_jsEnabled">
+                <% @select_data.each do |title, id| %>
+                <li>
+                    <%= link_to title, show_stat_path(:id=>id||'0',:year=>@year), :id=>"#{id}" %>
+                </li>
+                <% end %>
+              </ul>
+              <select class="show_if_jsEnabled" id="stat_ids">
+                <%= options_for_select(@select_data, @id) %>
+              </select>
+            </div>
+        </li>
+        <li>
+            <div style="float: right; font-size: 0.8em; padding: 1em;">
+              <b>Last Updated:</b>
+              <br />
+              <input type="text"
+                size="25" disabled="disabled"
+                style="font-size: 0.9em; padding: 0.1em;"
+                value="<%= DateTime.now.strftime('%m/%d/%Y at %I:%M%p').downcase %>" />
+            </div>
+        </li>
+    </ul>
+    
+    <div style="clear: both;"> </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="alert alert-success">
+    * You can also view P4 Resident and Program survey data in the 
+    <%= link_to('new reports system', main_app.ls_reports_path) %>
+</div>
+
+<% cache( :action_suffix => "reports_controller_#{@type}_#{@id}") do %>
+
+    <%= render :partial=>'shared/modal_spinner', :locals=>{:modal_id=>'modal-report', :message=>'Loading Report'}%>
+    <div id="top"></div>
+    <div class="row">
+        <div class="col-md-10">
+            <%= render :partial=>'reports/form'%>
+        </div>
+        <div class="col-md-2 scroll-spy-offset">
+            <%= render :partial=>'reports/scroll_spy'%>
+        </div>
+    </div>
+<% end # cache do%>

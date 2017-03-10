@@ -1,0 +1,75 @@
+<div class="stats-container">
+<div class='stats' id='s007'>
+    <div class='step' id='sec2_sl2_00_0'><p class='center small hint margin'>
+      <i>Please check all boxes that apply.</i>
+      <br/>
+      <i>If no boxes apply to you, please click the 'Next' button.</i>
+    </p>
+    
+    </div>
+    <table class='cell-left full padded borderless center step' id='sec2_sl2_01_0'>
+    <tr>
+      <td class='top pad question' colspan='2' style='width: 50%;'>
+        <span class='hint'>2.02 - </span>
+        Are you currently practicing in any of the following designated
+        areas/practices? 
+      </td>
+    </tr>
+    <tr>
+      <td width='5%'> </td>
+      <td class='no-wrap'>
+        <span class='stat'><a name='q202_a'></a><%= show_stats('q202_a', '1') %></span>
+        <label for='q202_a'>
+        HPSA: Federally designated health professional shortage area
+        </label>
+        <br/>
+        <span class='stat'><a name='q202_b'></a><%= show_stats('q202_b', '1') %></span>
+        <label for='q202_b'>
+        MUA: Federally designated medically underserved area
+        </label>
+        <br/>
+        <span class='stat'><a name='q202_c'></a><%= show_stats('q202_c', '1') %></span>
+        <label for='q202_c'>
+        MHC: Federally designated migrant health clinic
+        </label>
+        <br/>
+        <span class='stat'><a name='q202_d'></a><%= show_stats('q202_d', '1') %></span>
+        <label for='q202_d'>
+        CHC: Federally designated community health clinic
+        </label>
+        <br/>
+        <span class='stat'><a name='q202_e'></a><%= show_stats('q202_e', '1') %></span>
+        <label for='q202_e'>
+        RHC: Federally designated rural health clinic
+        </label>
+        <br/>
+        <span class='stat'><a name='q202_f'></a><%= show_stats('q202_f', '1') %></span>
+        <label for='q202_f'>
+        NHSC: National Health Service Corps
+        </label>
+        <br/>
+        <span class='stat'><a name='q202_g'></a><%= show_stats('q202_g', '1') %></span>
+        <label for='q202_g'>
+        IHS: Indian Health Service site
+        </label>
+        <br/>
+        <span class='stat'><a name='q202_h'></a><%= show_stats('q202_h', '1') %></span>
+        <label for='q202_h'>
+        Other state or federally qualified health center / clinic
+        </label>
+        <label class='hint' for='q202_h'>&#8212;</label>
+        <span class='stat'><a name='q202_other'></a><%= show_stats('q202_other', '') %></span>
+        <%= errors_for('q202_other') %>
+        <br/>
+        <span class='stat'><a name='q202_none'></a><%= show_stats('q202_none', '1') %></span>
+        <label for='q202_none'>
+        None of the above
+        </label>
+      </td>
+    </tr>
+    </table>
+    
+    
+  </div>
+</div>
+<div class="break"></div>

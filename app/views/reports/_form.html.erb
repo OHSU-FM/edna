@@ -1,0 +1,136 @@
+<%= form_tag( reports_path , :id => 'form', :method => :get) do %>
+    <%= hidden_field_tag(:type=>@type) %>
+<div id="header" class="hidden-print">
+    <!-- Extra Options -->
+    <div class="right">
+        <b>Survey View Options</b>
+        <br />
+        <ul style="line-height: 2em; font-size: 1em;" class="list-inline">
+            <li>
+            <%= link_to 'PDF', public_file_path("instruments/#{@type_pdf_name}"), :target=>'_blank', :class=>"btn btn-xs btn-default" %>
+            </li>
+            <% if (has_stats_view(params[:type])) %>
+            <li>
+            <%= link_to_stats params[:type], nil, 'View Report' %>
+            </li>
+            <% end %>
+            <li>
+                <button type="button" class="btn btn-xs btn-primary" onclick="window.print();">Print</button>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Residency Program Selector -->
+    <div class="right pad-right">
+      <b>Program</b>
+      <br /> 
+      <select id="report_ids" class="show_if_jsEnabled">
+        <% if (current_user.admin_or_higher?) %>
+          <%= options_for_select(@select_data, @id) %>
+        <% else %>
+          <%= options_for_select([ @id ], @id) %>
+        <% end %>
+      </select>
+    </div>
+    
+    <!-- Data Set Selector -->
+    <div class="right pad-right">
+      <b>Data Set</b>
+      <br />
+      <ul class="hide_if_jsEnabled">
+      <% @type_select_data.each do |type| %>
+        <li><%= link_to type[0], show_report_path(:type=>type[1],:id=>@id), :id=>"#{@id}-#{type[1]}" %></li>
+      <% end %>
+      </ul>
+ 
+      <select class="show_if_jsEnabled" id="report_types">
+        <%= options_for_select(@type_select_data, @type) %>
+      </select>
+    </div> 
+</div>
+
+<!-- Data Table -->
+<table style="width: 100%;" class="report">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+      <th colspan="6">Your Residency Program</th>
+      <th colspan="6">Aggregate of all Programs</th>
+    </tr>
+    <tr class="attribute">
+      <th colspan="3">
+        Measure<br />
+        <small>
+          (Details: <a class="show-all-rows" href="#">Show</a>
+            | <a class="hide-all-rows" href="#">Hide</a>
+            | <a class="toggle-all-rows" href="#">Toggle</a>)
+        </small>
+        <br />
+        <small>
+          (All Details: <a class="show-all-normal" href="#">Normal View</a>
+            | <a class="show-all-yoy" href="#">Year-Over-Year View</a>)
+        </small>
+      </th>
+      <th>
+        Participants
+      </th>
+      <th>
+        Responses
+      </th>
+      <th>
+        Percentage Responding
+      </th>
+      <th>
+        Mean
+      </th>
+      <th>
+        95% Confidence Interval
+      </th>
+      <th class="vertical-space">
+        Participants
+      </th>
+      <th>
+        Responses
+      </th>
+      <th>
+        Percentage Responding
+      </th>
+      <th>
+        Mean
+      </th>
+      <th>
+        95% Confidence Interval
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% color = false %>
+    <% if (@attributes.count == 0) %>
+        <tr>
+          <td class="attribute master nodata" colspan="13">
+            We received no responses for the site/survey you selected
+          </td>
+        </tr>
+    <% else %>
+        <% scount = 0 %>
+        <% @sorter.all_sorters.each do |sorter| %>
+            <% sorter.order = scount %>
+            <% scount += 1 %>
+            <tr id="<%= sorter.sanitized_category %>">
+                <% if sorter.statistics.size > 0  %>
+                    <td colspan='13'>
+                        <hr/>
+                        <h4><%= sorter.category %></h4>
+                        <hr/>
+                    </td>
+                <% end %>
+            </tr>
+            <% sorter.statistics.each do |statistic| %>
+                <%= render :partial=>'reports/row_meta_attribute_statistic', :locals=>{:attribute=>statistic, :color=>color} %>
+            <% end %>
+        <% end %>
+    <% end %>
+  </tbody>
+</table>
+<% end # form_tag do %>
+

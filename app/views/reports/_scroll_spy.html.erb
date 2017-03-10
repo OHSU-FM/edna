@@ -1,0 +1,23 @@
+    <div id="scroll-spy-nav" class="hidden-print affix-top" role="complementary" data-spy="affix" data-offset-top="80">
+        <ul class="nav">
+            <% idx = 0 %>
+            <li><a href="#top">Top of page</a></li>
+            <% @sorter.all_sorters(:depth=>1).each do |sorter| %>
+                <li class="<%= idx==0 ? 'active' : '' %>">
+                    <% if sorter.sub_sorters.empty? %>
+                        <a href="#<%= sorter.sanitized_category %>"><%= sorter.title %></a>
+                    <% else %>
+                        <a href="#<%= sorter.sanitized_category %>"><%= sorter.category.split(':').first %></a>
+                        <ul class="nav">
+                            <% sorter.sub_sorters.sort_by{|ss|ss.order}.each do |sub_sorter| %>
+                            <li><a href="#<%= sub_sorter.sanitized_category%>"><%= sub_sorter.title %></a></li>
+                        <% end %>
+                        </ul>
+                    <% end %>
+                </li>
+                <% idx += 1 %>
+            <% end %>
+        </ul>
+    </div>
+
+

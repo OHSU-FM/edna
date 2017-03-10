@@ -1,0 +1,64 @@
+<div class="alert alert-success">
+    * You can also view P4 Resident and Program survey data in the 
+    <%= link_to('new reports system', main_app.ls_reports_path) %>
+</div>
+
+<% cache(:action_suffix=>"#{@id}_#{@year}") do %>
+    <%= render :partial=>'shared/modal_spinner', :locals=>{:modal_id=>'modal_stats', :message=>'Loading Data Set'}%>
+    <div class="clear stats-container-top">
+    <%= form_tag :stats, :method=>:get, :id=>:form  do %>
+        <%= render :partial => "p4_graduate_top" %>
+        <div class="row">
+            <div class="col-md-9" role="main">
+                <%= render :partial => "p4_graduate_s002" %>
+                <%= render :partial => "p4_graduate_s003" %>
+                <%= render :partial => "p4_graduate_s004" %>
+                <%= render :partial => "p4_graduate_s005" %>
+                <%= render :partial => "p4_graduate_s006" %>
+                <%= render :partial => "p4_graduate_s007" %>
+                <%= render :partial => "p4_graduate_s008" %>
+                <%= render :partial => "p4_graduate_s009" %>
+                <%= render :partial => "p4_graduate_s010" %>
+                <%= render :partial => "p4_graduate_s011" %>
+                <%= render :partial => "p4_graduate_s012" %>
+                <%= render :partial => "p4_graduate_s013" %>
+                <%= render :partial => "p4_graduate_s014" %>
+                <%= render :partial => "p4_graduate_s015" %>
+                <%= render :partial => "p4_graduate_s016" %>
+                <%= render :partial => "p4_graduate_s017" %>
+                <%= render :partial => "p4_graduate_s018" %>
+                <%= render :partial => "p4_graduate_s019" %>
+                <%= render :partial => "p4_graduate_s020" %>
+                <%= render :partial => "p4_graduate_s021" %>
+                <%= render :partial => "p4_graduate_s022" %>
+                <%= render :partial => "p4_graduate_s023" %>
+                <%= render :partial => "p4_graduate_s024" %>
+                <%= render :partial => "p4_graduate_s025" %>
+                <%= render :partial => "p4_graduate_s026" %>
+                <%= render :partial => "p4_graduate_s027" %>
+                <%= render :partial => "p4_graduate_s028" %>
+                <%= render :partial => "p4_graduate_s029" %>
+                <%= render :partial => "p4_graduate_s030" %>
+                <%= render :partial => "p4_graduate_s031" %>
+                <%= render :partial => "p4_graduate_s032" %>
+                <%= render :partial => "p4_graduate_s033" %>
+                <%= render :partial => "p4_graduate_s034" %>
+                <%= render :partial => "p4_graduate_s035" %>
+                <%= render :partial => "p4_graduate_s036" %>
+                <%= render :partial => "p4_graduate_s037" %>
+                <%= render :partial => "p4_graduate_s038" %>
+                <%= render :partial => "p4_graduate_s039" %>
+                <%= render :partial => "p4_graduate_s040" %>
+                <%= render :partial => "p4_graduate_s041" %>
+                <%= render :partial => "p4_graduate_s042" %>
+                <%= render :partial => "p4_graduate_s043" %>
+                <%= render :partial => "p4_graduate_s044" %>
+                <%= render :partial => "p4_graduate_s045" %>
+            </div>
+            <div class="col-md-3" role="complimentary">
+                <%= render :partial => "p4_graduate_nav" %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+<% end %>

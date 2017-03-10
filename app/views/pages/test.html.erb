@@ -1,0 +1,13 @@
+<% 
+    kparams = {:agg=>params[:agg], :pk=>params[:pk]}
+    sid = 769487
+    fm = LsReportsHelper::FilterManager.new current_user, sid, :params=>kparams
+%>
+<% fm.virtual_groups.each do |group| %>
+    <%= group.group_name %>
+    <br/>
+    <%= group.parent_questions.each do |pq|%>
+        <%= pq.stats.to_json %>
+        <%= pq.response_set.to_json %>
+    <% end%>
+<% end%>

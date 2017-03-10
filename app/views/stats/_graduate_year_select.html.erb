@@ -1,0 +1,14 @@
+<!-- Year Selector -->
+<div id="year_selector" style="float: right; font-size: 0.8em; padding: 1em;">
+  <b>Year:</b>
+  <br />
+  <%=
+    (@years.map { |year|
+      (
+        (@year == year) ?
+            h(year) : link_to(h(year), show_stat_path(@id, year) )
+      )
+    }).join(' | ').html_safe
+  %>
+</div>
+

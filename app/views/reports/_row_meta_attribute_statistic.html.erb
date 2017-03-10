@@ -1,0 +1,283 @@
+<%
+        detail_id = h('detail_' + sprintf('%d', attribute.attribute_index))
+        arrow_id = h('arrow_' + sprintf('%d', attribute.attribute_index))
+
+        no_expand = (attribute.meta_attribute_values.length == 0)
+        do_skip = @hide_cols.include?(attribute.attribute_name)
+        return if do_skip
+        is_continuous = attribute.is_continuous
+%>
+      <tr id="<%= attribute.attribute_name.underscore %>" class="attribute master<%= color ? ' color' : '' %>">
+        <td class="arrow">
+          <% unless (do_skip || no_expand) %>
+                <div class="arrow-closed toggle-img unselectable" id="<%= arrow_id %>"></div>
+          <% end %>
+        </td>
+        <td class="number">
+          <%= h(attribute.attribute_index) %>
+        </td>
+        <td class="left">
+          <% unless (do_skip || no_expand) %>
+            <a class="toggle-img">
+          <% end %>
+            <%= h(attribute.attribute_description) %>
+          <% unless (do_skip || no_expand) %>
+            </a>
+          <% end %>
+          <br />
+          <small>(<%= h(attribute.attribute_name) %>)</small>
+        </td>
+        <td>
+          <%= h(sprintf('%d', attribute.subset_count)) %>
+        </td>
+        <td>
+          <%= h(sprintf('%d', attribute.subset_n)) %>
+        </td>
+        <td>
+          <%=
+            colorize_span(attribute.subset_n_percent, 0, 100) {
+              h(attribute.subset_n_percent) + '%'
+            }.html_safe
+          %>
+        </td>
+        <td>
+          <%= do_skip || !is_continuous ? '' : h(attribute.subset_mean) %>
+        </td>
+        <td>
+          <%=
+            ((do_skip || !is_continuous || attribute.subset_ci_lower == nil) ? '' :
+              sprintf('%.2f<span class="light">&#8212;</span>%.2f',
+                      attribute.subset_ci_lower, attribute.subset_ci_upper).html_safe
+            )
+          %>
+        </td>
+        <td class="vertical-space">
+          <%= h(sprintf('%d', attribute.count)) %>
+        </td>
+        <td>
+          <%= h(sprintf('%d', attribute.n)) %>
+        </td>
+        <td>
+        
+          <%=
+            colorize_span(attribute.subset_n_percent, 0, 100) {
+              h(attribute.n_percent) + '%'
+            }.html_safe
+          %>
+        </td>
+        <td>
+          <%= do_skip || !is_continuous ? '' : h(attribute.mean) %>
+        </td>
+        <td>
+          <%=
+            ((do_skip || !is_continuous || attribute.ci_lower == nil) ? '' :
+              sprintf('%.2f<span class="light">&#8212;</span>%.2f',
+                      attribute.ci_lower, attribute.ci_upper).html_safe
+            )
+          %>
+        </td>
+      </tr>
+      <!-- Per-attribute value/percentage list -->
+      <% if (attribute.meta_attribute_values.count > 0 && !do_skip && !no_expand) %>
+      <tr class="<%= color ? ' color' : '' %>">
+        <td colspan="14">
+          <div class="toggle-div" id="<%= detail_id %>" style="display: none;">
+            <%
+              color_i = 0
+              color_map = {}
+
+              year_over_year = nil
+              show_year_over_year = false
+
+              if (!is_continuous)
+                year_over_year = (1..@max_year).map { |year|
+                  rv = []
+                  # Get entity table names for this type
+                  entity_name = get_type_for_year(@type, year)
+
+                  if (entity_name)
+
+                    attr = MetaAttribute::MetaAttributeStatistic.includes(:meta_attribute_values).
+                        where(:entity_name => entity_name,
+                            :subset_id => @id,
+                            :attribute_name => attribute.attribute_name
+                        ).first
+
+                    if (attr && attr.meta_attribute_values)
+                        attr.meta_attribute_values.each_with_index { |v, i|
+                         
+                        if (!color_map[v.value])
+                            if v.value_description == 'Yes'
+                                color_map[v.value] = '#1F8040' 
+                            elsif v.value_description == 'No'
+                                color_map[v.value] = '#8A1540'
+                            else
+                                color_map[v.value] = get_color(color_i, v.value)
+                            end
+                            color_i += 1
+                        end
+                      }
+                      rv = (attr.meta_attribute_values.sort { |x, y|
+                        x.value.to_i <=> y.value.to_i
+                      }).inject([]) { |a, v|
+                        a << [
+                          v.value,
+                          v.value_description,
+                          (attr.subset_n == 0 ? 0 :
+                            ((1.0 * v.subset_count / attr.subset_count) * 100.0).round(2)),
+                          (attr.n == 0 ? 0 :
+                            ((1.0 * v.count / attr.count) * 100.0).round(2))
+                        ]; a
+                      }
+                      show_year_over_year = true
+                    end
+                  end; rv
+                }
+              end
+            %>
+            <div id="<%= detail_id %>-ext" class="detail" style="display: none;">
+              <% if (show_year_over_year) %>
+                <div class="right" style="font-size: 0.9em; padding: 1em 0 1em 1em;">
+                    <button type="button" class="btn btn-default btn-xs show-normal">
+                        Show Current Year Only For This Measure</button>
+                </div>
+                <table style="width: 100%;">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td colspan="2"><i>Year-Over-Year Comparisons</i></td>
+                    </tr>
+                    <tr>
+                      <td>Study Year</td>
+                      <td>Your Residency Program</td>
+                      <td>Aggregate of All P<sup>4</sup> Programs</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%
+                      year_over_year.each_with_index { |tuples, i|
+                    %>
+                    <tr>
+                      <td style="padding: 0.5em;">
+                        <%= (i + 1) %>
+                      </td>
+                      <td>
+                      <%
+                        if (tuples.count <= 0)
+                          %><span class="small light">Not Available</span><%
+                        else
+                          tuples.each_with_index { |tuple, j|
+                            (value, value_description, percent, x) = tuple
+                            concat percent_bar(
+                              100, 0, 100, percent, {
+                                :color => color_map[value],
+                                  :use_percentages => true
+                            }) {
+                              (percent > 0 ? percent.to_s : '')
+                            }.html_safe
+                          }
+                        end
+                      %>
+                      </td>
+                      <td>
+                      <%
+                        if (tuples.count <= 0)
+                          %><span class="small light">Not Available</span><%
+                        else
+                          tuples.each_with_index { |tuple, j|
+                            (value, value_description, x, percent) = tuple
+                            concat percent_bar(
+                              100, 0, 100, percent,
+                                :color => color_map[value],
+                                  :use_percentages => true
+                            ) {
+                              (percent > 0 ? percent.to_s : '')
+                            }.html_safe
+                          }
+                        end
+                      %>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <td class="legend">Legend</td>
+                      <td style="font-weight: normal;" colspan="2">
+                      <%
+                        tuples = (
+                          year_over_year.map { |x| (x == [] ? nil : x) }
+                        ).compact.first
+                        if (tuples)
+                            tuples.each_with_index { |tuple, j|
+                                (value, value_description, x, percent) = tuple
+                                legend_name = value_description.underscore.gsub(' ', '_')
+                                %>
+                                <div class="left <%= legend_name%>" style="padding: 1em 1.75em;">
+                                    <%= percent_bar(1, 0, 1, 2, :color => color_map[value]).html_safe %>
+                                    &nbsp;
+                                    <%= value_description %>
+                                  </div>
+                                <%
+                            }
+                        end
+                      %>
+                      </div>
+                      </td>
+                    </tr>
+                  </thead>
+                </table>
+              <% end %>
+            </div>
+
+            <div id="<%= detail_id %>-normal" class="detail">
+              <div class="left" style="font-size: 0.9em; padding: 1em 1em 1em 0;">
+                <%=
+                    link_to_stats(params[:type], attribute.attribute_name)
+                %>
+              </div>
+              <% if (show_year_over_year) %>
+                <div class="right" style="font-size: 0.9em; padding: 1em 0 1em 1em;">
+                    <button type="button" class="btn btn-default btn-xs show-yoy">
+                        Show Year-Over-Year Comparison For This Measure</button>
+                </div>
+              <% end %>
+              <table style="width: 100%;">
+                <thead>
+                  <tr>
+                    <td>Ordinal Value</td>
+                    <td>Outcome Description</td>
+                    <td colspan="2">Your Residency Program</td>
+                    <td colspan="2">Aggregate of all P4 Programs</td>
+                  </tr>
+                </thead>
+                <tbody>
+                <% attribute.meta_attribute_values.each { |value| %>
+                  <tr>
+                    <td><%= h(value.value) %></td>
+                    <td><%= h(value.value_description) %></td>
+                    <td class="right">
+                      <% p = (100.0 * value.subset_count) / attribute.subset_count %>
+                      <%= h(sprintf('%.2f%%', p)).html_safe %>
+                    </td>
+                    <td>
+                      <%= percent_bar(p, 0, 100, 10).html_safe %>
+                    </td>
+                    <td class="right">
+                      <% p = (100.0 * value.count) / attribute.count %>
+                      <%= h(sprintf('%.2f%%', p)).html_safe %>
+                    </td>
+                    <td>
+                      <%= percent_bar(p, 0, 100, 10).html_safe %>
+                    </td>
+                  </tr>
+                <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <% color = !color %>
+      <% end %>
+

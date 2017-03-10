@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class ChartSeries - Rails Application Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-category_filter-3D">#category_filter=</a>
+    
+    <li ><a href="#method-i-category_filter_enum">#category_filter_enum</a>
+    
+    <li ><a href="#method-i-entity_filter">#entity_filter</a>
+    
+    <li ><a href="#method-i-entity_filter_enum">#entity_filter_enum</a>
+    
+    <li ><a href="#method-i-group_filter-3D">#group_filter=</a>
+    
+    <li ><a href="#method-i-group_filter_enum">#group_filter_enum</a>
+    
+    <li ><a href="#method-i-meta_attribute_questions">#meta_attribute_questions</a>
+    
+    <li ><a href="#method-i-question_filter-3D">#question_filter=</a>
+    
+    <li ><a href="#method-i-question_filter_enum">#question_filter_enum</a>
+    
+    <li ><a href="#method-i-ready_for_data-3F">#ready_for_data?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ChartSeries">
+  <h1 id="class-ChartSeries" class="class">
+    class ChartSeries
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-category_filter-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category_filter=</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>clear other values if we are changed</p>
+          
+          
+
+          
+          <div class="method-source-code" id="category_filter-3D-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">category_filter=</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">self</span>[<span class="ruby-value">:category_filter</span>] = <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category_filter_changed?</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">question_filter</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">entity_filter</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-category_filter_enum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category_filter_enum</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="category_filter_enum-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">category_filter_enum</span>
+    <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">group_filter</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">''</span>
+    <span class="ruby-constant">MetaAttribute</span><span class="ruby-operator">::</span><span class="ruby-constant">MetaAttributeQuestion</span>.
+        <span class="ruby-identifier">joins</span>(<span class="ruby-value">:meta_attribute_entity</span>).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_questions.category IS NOT NULL'</span>).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_questions.visible = true'</span>).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_entities.visible = true'</span>).
+        <span class="ruby-identifier">where</span>([<span class="ruby-string">'meta_attribute_entities.meta_attribute_entity_group_group_name = ?'</span>, <span class="ruby-identifier">group_filter</span>]).
+        <span class="ruby-identifier">distinct</span>(<span class="ruby-value">:category</span>).
+        <span class="ruby-identifier">pluck</span>(<span class="ruby-value">:category</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-entity_filter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">entity_filter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="entity_filter-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">entity_filter</span>
+    <span class="ruby-comment"># if empty show all</span>
+    <span class="ruby-identifier">val</span> = <span class="ruby-constant">Array</span>(<span class="ruby-keyword">self</span>[<span class="ruby-value">:entity_filter</span>]).<span class="ruby-identifier">reject</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">==</span><span class="ruby-string">''</span>}
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">val</span> = <span class="ruby-identifier">entity_filter_enum</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-entity_filter_enum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">entity_filter_enum</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="entity_filter_enum-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">entity_filter_enum</span>
+    <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">group_filter</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">''</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">question_filter</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">''</span>
+    <span class="ruby-constant">MetaAttribute</span><span class="ruby-operator">::</span><span class="ruby-constant">MetaAttributeEntity</span>.
+        <span class="ruby-identifier">joins</span>(<span class="ruby-value">:meta_attribute_questions</span>).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_entities.visible = true'</span>).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_questions.visible = true'</span>).
+        <span class="ruby-identifier">where</span>([<span class="ruby-string">'meta_attribute_entities.meta_attribute_entity_group_group_name = ?'</span>, <span class="ruby-identifier">group_filter</span>]).
+        <span class="ruby-identifier">where</span>([<span class="ruby-string">'meta_attribute_questions.category=?'</span>, <span class="ruby-identifier">category_filter</span>]).
+        <span class="ruby-identifier">distinct</span>(<span class="ruby-value">:entity_type</span>).
+        <span class="ruby-identifier">order</span>(<span class="ruby-value">:entity_type</span>).
+        <span class="ruby-identifier">pluck</span>(<span class="ruby-value">:entity_type</span>).
+        <span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-group_filter-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">group_filter=</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>clear other values if we are changed</p>
+          
+          
+
+          
+          <div class="method-source-code" id="group_filter-3D-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">group_filter=</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">self</span>[<span class="ruby-value">:group_filter</span>] = <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">group_filter_changed?</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">category_filter</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">entity_filter</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-group_filter_enum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">group_filter_enum</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>group filter enumerator</p>
+          
+          
+
+          
+          <div class="method-source-code" id="group_filter_enum-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">group_filter_enum</span>
+    <span class="ruby-constant">MetaAttribute</span><span class="ruby-operator">::</span><span class="ruby-constant">MetaAttributeEntityGroup</span>.
+        <span class="ruby-identifier">where</span>(<span class="ruby-value">:visible=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">true</span>).
+        <span class="ruby-identifier">pluck</span>(<span class="ruby-value">:group_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-meta_attribute_questions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">meta_attribute_questions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="meta_attribute_questions-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">meta_attribute_questions</span>
+    <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ready_for_data?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">MetaAttribute</span><span class="ruby-operator">::</span><span class="ruby-constant">MetaAttributeQuestion</span>.
+        <span class="ruby-identifier">joins</span>(<span class="ruby-value">:meta_attribute_entity</span>).
+        <span class="ruby-identifier">where</span>([<span class="ruby-string">'meta_attribute_entities.meta_attribute_entity_group_group_name = ?'</span>, <span class="ruby-identifier">group_filter</span>]).
+        <span class="ruby-identifier">where</span>([<span class="ruby-string">'meta_attribute_entities.entity_type IN (?)'</span>, <span class="ruby-identifier">entity_filter</span>]).
+        <span class="ruby-identifier">where</span>([<span class="ruby-string">'meta_attribute_questions.attribute_name = ?'</span>, <span class="ruby-identifier">question_filter</span>]).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_questions.visible=true'</span>).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_entities.visible=true'</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-question_filter-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">question_filter=</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>clear other values if we are changed</p>
+          
+          
+
+          
+          <div class="method-source-code" id="question_filter-3D-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">question_filter=</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">self</span>[<span class="ruby-value">:question_filter</span>] = <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">question_filter_changed?</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">entity_filter</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-question_filter_enum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">question_filter_enum</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="question_filter_enum-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">question_filter_enum</span>
+    <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">group_filter</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">category_filter</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">MetaAttribute</span><span class="ruby-operator">::</span><span class="ruby-constant">MetaAttributeQuestion</span>.
+        <span class="ruby-identifier">joins</span>(<span class="ruby-value">:meta_attribute_entity</span>).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_entities.visible = true'</span>).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_questions.visible = true'</span>).
+        <span class="ruby-identifier">where</span>(<span class="ruby-string">'meta_attribute_questions.category IS NOT NULL'</span>).
+        <span class="ruby-identifier">where</span>([<span class="ruby-string">'meta_attribute_entities.meta_attribute_entity_group_group_name = ?'</span>, <span class="ruby-identifier">group_filter</span>]).
+        <span class="ruby-identifier">where</span>([<span class="ruby-string">'meta_attribute_questions.category=?'</span>, <span class="ruby-identifier">category_filter</span>]).
+        <span class="ruby-identifier">select</span>(<span class="ruby-string">'DISTINCT attribute_name, description'</span>).
+        <span class="ruby-identifier">order</span>(<span class="ruby-string">'attribute_name, description'</span>).<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">maq</span><span class="ruby-operator">|</span>[<span class="ruby-identifier">maq</span>.<span class="ruby-identifier">description</span>,<span class="ruby-identifier">maq</span>.<span class="ruby-identifier">attribute_name</span>]}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ready_for_data-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ready_for_data?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>is this series ready for a datapull?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ready_for_data-3F-source">
+            <pre><span class="ruby-comment"># File app/models/chart_series.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ready_for_data?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">question_filter</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">!=</span> <span class="ruby-string">''</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">question_filter_enum</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

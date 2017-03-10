@@ -1,0 +1,77 @@
+<div class="stats-container">
+<div class='stats' id='s008'>
+    <div class='step' id='sec2_sl3_00_0'><p class='center small hint margin'>
+      <i>Please click only one circle for the question below.</i>
+    </p>
+    
+    </div>
+    <table class='cell-left full padded borderless center step' id='sec2_sl3_01_0'>
+    <tr>
+      <td class='top question' colspan='2' style='width: 50%;'>
+        <span class='hint'>2.03 - </span>
+        Which of the following best describes the community in which you practice? 
+        <br/>
+      </td>
+    </tr>
+    <tr>
+      <td width='2%'> </td>
+      <td>
+        <span class='stat'><a name='q203'></a><%= show_stats('q203', '1') %></span>
+        <label for='q203_1'>
+        Community of less than 2,500 people
+        </label>
+        <br/>
+        <span class='stat'><a name='q203'></a><%= show_stats('q203', '2') %></span>
+        <label for='q203_2'>
+        Small town of 2,501 - 5,000
+        </label>
+        <br/>
+        <span class='stat'><a name='q203'></a><%= show_stats('q203', '3') %></span>
+        <label for='q203_3'>
+        Medium-sized town of 5,001 - 10,000
+        </label>
+        <br/>
+        <span class='stat'><a name='q203'></a><%= show_stats('q203', '4') %></span>
+        <label for='q203_4'>
+        Small city of 10,001 - 100,000 (<em>not</em> a suburb of a large city)
+        </label>
+        <br/>
+        <span class='stat'><a name='q203'></a><%= show_stats('q203', '5') %></span>
+        <label for='q203_5'>
+        Within a large city (greater than 100,000)
+        </label>
+        <br/>
+        <span class='stat'><a name='q203'></a><%= show_stats('q203', '6') %></span>
+        <label for='q203_6'>
+        In a suburb of a large city
+        </label>
+      </td>
+    </tr>
+    </table>
+    
+    
+    <div class='step' id='sec2_sl3_02_0'><p class='center small hint margin'>
+      <i>Please type a number to answer the question below.</i>
+    </p>
+    
+    </div>
+    <table class='cell-left full borderless center step' id='sec2_sl3_03_0'>
+      <tr>
+        <td class='question' style='width: 65%;'>
+          <span class='hint'>2.04 - </span>
+          How long in months have you been at your current practice location?
+          <br/>
+        </td>
+        <td>
+          <div class='padded'>
+            <span class='stat'><a name='q204'></a><%= show_stats('q204', '') %></span> Months
+            <%= errors_for('q204') %>
+          </div>
+        </td>
+      </tr>
+      </table>
+      
+    
+  </div>
+</div>
+<div class="break"></div>

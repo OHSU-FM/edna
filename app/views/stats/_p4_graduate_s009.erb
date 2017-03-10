@@ -1,0 +1,44 @@
+<div class="stats-container">
+<div class='stats' id='s009'>
+    <div class='step' id='sec2_sl4_00_0'><p class='margin hint small center'>
+      <i>
+      Please estimate your own average work load. Type a number as indicated
+      on each line.
+      </i>
+    </p><table class='cell-left full borderless center'>
+    <tr>
+      <td class='padded question' style='width: 65%;'>
+        <span class='hint'>2.05 - </span>
+        Number of office visits in an average full day.<br/>
+        <small>If you only work in half-day increments, multiply by 2 to
+        get the full-day number.</small>
+        <br/>
+      </td>
+      <td>
+        <div class='padded'>
+          <span class='stat'><a name='q205'></a><%= show_stats('q205', '') %></span> Visits Per Day
+          <%= errors_for('q205') %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class='padded question' style='width: 65%;'>
+        <span class='hint'>2.06 - </span>
+        Total hours per week worked (in all your professional activities)
+        exclusive of on-call time out of the office.
+        <br/>
+      </td>
+      <td>
+        <div class='padded'>
+          <span class='stat'><a name='q206'></a><%= show_stats('q206', '') %></span> Hours Per Week
+          <%= errors_for('q206') %>
+        </div>
+      </td>
+    </tr>
+    </table>
+    
+    
+    </div>
+  </div>
+</div>
+<div class="break"></div>

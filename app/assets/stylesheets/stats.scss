@@ -1,0 +1,13 @@
+/*
+ *= require slide
+ *= require print
+ */
+div.stats{
+	-webkit-transition: all 0.8s ease-in-out;
+	-moz-transition: all 0.8s ease-in-out;
+	-o-transition: all 0.8s ease-in-out;
+transition: all 0.8s ease-in-out;
+}
+div.stats.fragment-animation{
+	background-color: #FF6666;
+}

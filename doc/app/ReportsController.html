@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class ReportsController - Rails Application Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-get_file_map">#get_file_map</a>
+    
+    <li ><a href="#method-i-get_type_for_year">#get_type_for_year</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+    <li ><a href="#method-i-instrument">#instrument</a>
+    
+    <li ><a href="#method-i-show">#show</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ReportsController">
+  <h1 id="class-ReportsController" class="class">
+    class ReportsController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-get_file_map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_file_map</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_file_map-source">
+            <pre><span class="ruby-comment"># File app/controllers/reports_controller.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_file_map</span>
+  <span class="ruby-keyword">return</span> {
+    <span class="ruby-string">'y1_residency_programs'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y1_program_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y1_continuity_clinics'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y1_continuity_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y1_resident_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y1_resident_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y1_graduate_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_2006_graduate_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y2_residency_programs'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y2_program_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y2_continuity_clinics'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y2_continuity_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y2_resident_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y2_resident_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y2_graduate_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_2007_graduate_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y3_residency_programs'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y3_program_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y3_continuity_clinics'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y3_continuity_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y4_residency_programs'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y4_program_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y4_continuity_clinics'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y4_continuity_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y4_resident_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y4_resident_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y5_residency_programs'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y5_program_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y5_continuity_clinics'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y5_continuity_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y5_resident_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y5_resident_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y3_resident_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_y3_resident_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y3_graduate_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_2008_graduate_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y4_graduate_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_2009_graduate_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y5_graduate_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_2010_graduate_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y6_graduate_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_2011_graduate_survey.pdf&quot;</span>,
+    <span class="ruby-string">'y7_graduate_responses'</span> =<span class="ruby-operator">&gt;</span>
+      <span class="ruby-node">&quot;#{Rails.root}/../instruments/p4_2012_graduate_survey.pdf&quot;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_type_for_year" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_type_for_year</span><span
+            class="method-args">(type, year)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_type_for_year-source">
+            <pre><span class="ruby-comment"># File app/controllers/reports_controller.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_type_for_year</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">year</span>)
+  <span class="ruby-identifier">new_type</span> = <span class="ruby-identifier">type</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^y\d+_/</span>, <span class="ruby-node">&quot;y#{year}_&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">new_type</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">get_file_map</span>[<span class="ruby-identifier">new_type</span>])
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/reports_controller.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">admin_or_higher?</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">show_report_path</span>(<span class="ruby-value">:id=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">'A'</span>, <span class="ruby-value">:type=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">'y7_graduate_responses'</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">p4_program_id</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">render</span> <span class="ruby-value">:file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>, <span class="ruby-string">'public'</span>, <span class="ruby-string">'401.html'</span>)
+  <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">show_report_path</span>(<span class="ruby-value">:id=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">p4_program</span>.<span class="ruby-identifier">alias</span>, <span class="ruby-value">:type=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">'y7_graduate_responses'</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-instrument" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">instrument</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="instrument-source">
+            <pre><span class="ruby-comment"># File app/controllers/reports_controller.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">instrument</span>
+  <span class="ruby-ivar">@file_map</span> = <span class="ruby-identifier">get_file_map</span>
+  <span class="ruby-ivar">@type</span> = (<span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:y1_continuity_clinics</span>).<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@file_map</span>[<span class="ruby-ivar">@type</span>])
+    <span class="ruby-identifier">send_file</span> <span class="ruby-ivar">@file_map</span>[<span class="ruby-ivar">@type</span>],
+      <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'application/pdf'</span>, <span class="ruby-value">:disposition</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'inline'</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span>(<span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:index</span>)
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/reports_controller.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-comment"># Columns to hide</span>
+  <span class="ruby-ivar">@hide_cols</span> = <span class="ruby-node">%w(graduateid p4_program_id grad_year abfm_last_four paper finished max_slide created_at updated_at p4_resident_id id)</span>
+
+  <span class="ruby-comment"># Get type</span>
+  <span class="ruby-ivar">@type</span> = (<span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:y1_continuity_clinics</span>).<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-comment"># Force non admins to view their own content</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">admin_or_higher?</span> 
+      <span class="ruby-comment"># set type</span>
+      <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">p4_program</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">p4_program</span>.<span class="ruby-identifier">alias</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">render</span> <span class="ruby-value">:file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>, <span class="ruby-string">'public'</span>, <span class="ruby-string">'401.html'</span>)
+      <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">p4_program</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">p4_program</span>.<span class="ruby-identifier">alias</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">show_report_path</span>(<span class="ruby-value">:id=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">p4_program</span>.<span class="ruby-identifier">alias</span>, <span class="ruby-value">:type=</span><span class="ruby-operator">&gt;</span><span class="ruby-ivar">@type</span>)
+  <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># Collect list of all attributes for this @id and @type</span>
+  <span class="ruby-ivar">@attributes</span> = <span class="ruby-constant">MetaAttribute</span><span class="ruby-operator">::</span><span class="ruby-constant">MetaAttributeStatistic</span>.
+    <span class="ruby-identifier">where</span>(<span class="ruby-value">:subset_id=</span><span class="ruby-operator">&gt;</span><span class="ruby-ivar">@id</span>, <span class="ruby-value">:entity_name=</span><span class="ruby-operator">&gt;</span><span class="ruby-ivar">@type</span>).
+    <span class="ruby-identifier">includes</span>(<span class="ruby-value">:meta_attribute_values</span>).
+    <span class="ruby-identifier">order</span>(<span class="ruby-value">:attribute_index</span>)
+
+  <span class="ruby-ivar">@all_types</span> = <span class="ruby-constant">MetaAttribute</span><span class="ruby-operator">::</span><span class="ruby-constant">MetaAttributeStatistic</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:entity_name</span>)
+  <span class="ruby-identifier">hide_surveys</span> = [<span class="ruby-string">'y1_webads_responses'</span>, <span class="ruby-string">'y2_webads_responses'</span>]
+  
+  <span class="ruby-ivar">@type_select_data</span> = [
+      [ <span class="ruby-string">'Y1 Continuity Clinic Survey'</span>, <span class="ruby-string">'y1_continuity_clinics'</span> ],
+      [ <span class="ruby-string">'Y1 Resident Survey'</span>, <span class="ruby-string">'y1_resident_responses'</span> ],
+      [ <span class="ruby-string">'Y1 Residency Program Survey'</span>, <span class="ruby-string">'y1_residency_programs'</span> ],
+      <span class="ruby-comment"># [ 'Y1 WebADS Responses', 'y1_webads_responses' ],</span>
+      [ <span class="ruby-string">'Y2 Continuity Clinic Survey'</span>, <span class="ruby-string">'y2_continuity_clinics'</span> ],
+      [ <span class="ruby-string">'Y2 Resident Survey'</span>, <span class="ruby-string">'y2_resident_responses'</span> ],
+      [ <span class="ruby-string">'Y2 Residency Program Survey'</span>, <span class="ruby-string">'y2_residency_programs'</span> ],
+      <span class="ruby-comment"># [ 'Y2 WebADS Responses', 'y2_webads_responses' ],</span>
+      [ <span class="ruby-string">'Y3 Continuity Clinic Survey'</span>, <span class="ruby-string">'y3_continuity_clinics'</span> ],
+      [ <span class="ruby-string">'Y3 Resident Survey'</span>, <span class="ruby-string">'y3_resident_responses'</span> ],
+      [ <span class="ruby-string">'Y3 Residency Program Survey'</span>, <span class="ruby-string">'y3_residency_programs'</span> ],
+      [ <span class="ruby-string">'Y4 Continuity Clinic Survey'</span>, <span class="ruby-string">'y4_continuity_clinics'</span> ],
+      [ <span class="ruby-string">'Y4 Resident Survey'</span>, <span class="ruby-string">'y4_resident_responses'</span> ],
+      [ <span class="ruby-string">'Y4 Residency Program Survey'</span>, <span class="ruby-string">'y4_residency_programs'</span> ],
+      [ <span class="ruby-string">'Y5 Continuity Clinic Survey'</span>, <span class="ruby-string">'y5_continuity_clinics'</span> ],
+      [ <span class="ruby-string">'Y5 Resident Survey'</span>, <span class="ruby-string">'y5_resident_responses'</span> ],
+      [ <span class="ruby-string">'Y5 Residency Program Survey'</span>, <span class="ruby-string">'y5_residency_programs'</span> ],
+      [ <span class="ruby-string">'Graduate Survey - 2006 Graduates'</span>, <span class="ruby-string">'y1_graduate_responses'</span> ],
+      [ <span class="ruby-string">'Graduate Survey - 2007 Graduates'</span>, <span class="ruby-string">'y2_graduate_responses'</span> ],
+      [ <span class="ruby-string">'Graduate Survey - 2008 Graduates'</span>, <span class="ruby-string">'y3_graduate_responses'</span> ],
+      [ <span class="ruby-string">'Graduate Survey - 2009 Graduates'</span>, <span class="ruby-string">'y4_graduate_responses'</span> ],
+      [ <span class="ruby-string">'Graduate Survey - 2010 Graduates'</span>, <span class="ruby-string">'y5_graduate_responses'</span> ],
+      [ <span class="ruby-string">'Graduate Survey - 2011 Graduates'</span>, <span class="ruby-string">'y6_graduate_responses'</span> ],
+      [ <span class="ruby-string">'Graduate Survey - 2012 Graduates'</span>, <span class="ruby-string">'y7_graduate_responses'</span> ]
+  ]
+
+  <span class="ruby-ivar">@type_pdf_name</span> = <span class="ruby-ivar">@type_select_data</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+       <span class="ruby-identifier">item</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@type</span>     
+  }[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">underscore</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/( |_)+/</span>,<span class="ruby-string">'_'</span>)<span class="ruby-operator">+</span><span class="ruby-string">'.pdf'</span>
+
+  <span class="ruby-ivar">@select_data</span> = <span class="ruby-constant">MetaAttribute</span><span class="ruby-operator">::</span><span class="ruby-constant">MetaAttributeStatistic</span>.<span class="ruby-identifier">select</span>(<span class="ruby-value">:subset_id</span>).
+    <span class="ruby-identifier">group</span>(<span class="ruby-value">:subset_id</span>).
+    <span class="ruby-identifier">order</span>(<span class="ruby-value">:subset_id</span>).
+    <span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> [ <span class="ruby-identifier">a</span>.<span class="ruby-identifier">subset_id</span> ] <span class="ruby-operator">*</span> <span class="ruby-value">2</span>}
+
+  <span class="ruby-comment"># The max number of years for year over year comparisons</span>
+  <span class="ruby-ivar">@max_year</span> = <span class="ruby-value">7</span>
+  <span class="ruby-comment">#return self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
