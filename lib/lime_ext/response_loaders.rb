@@ -402,6 +402,14 @@ module LimeExt::ResponseLoaders
         return @data_labels
       end
 
+      def response_count
+        return @response_count if defined? @response_count
+        @response_count ||= if data_empty?
+          0
+        else
+          related_data.map {|q, r_h| r_h.count{|v| !v.to_s.empty? } }.sum
+        end
+      end
     end
 
     class ResponseSetMultComment < ResponseSetMult
@@ -424,6 +432,19 @@ module LimeExt::ResponseLoaders
           @data_labels[squestion.title] = squestion.question
         end
         return @data_labels
+      end
+
+      # ResponseSetMult#response_count counts 2x since related_data returns
+      # list of y/n as well as associated comment.
+      def response_count
+        return @response_count if defined? @response_count
+        @response_count ||= if data_empty?
+          0
+        else
+          related_data.map {|q, r_h|
+            r_h.count{|v| !v.to_s.empty? }
+          }.each_slice(2).map{|a| a.first}.sum
+        end
       end
     end
 
@@ -481,8 +502,6 @@ module LimeExt::ResponseLoaders
         end
         return @data
       end
-
-
     end
 
     ##

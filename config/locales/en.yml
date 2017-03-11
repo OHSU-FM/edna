@@ -2,16 +2,16 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-hello: "Hello world"
-activerecord:
-errors:
-models:
-survey_assignment:
-attributes:
-gather_user_tokens:
-not_implemented: 'is not yet implemented'
-admin:
-actions:
-refresh:
-menu: 'Refresh'
+  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        survey_assignment:
+          attributes:
+            gather_user_tokens:
+              not_implemented: 'is not yet implemented'
+  admin:
+    actions:
+      refresh:
+        menu: 'Refresh'
 

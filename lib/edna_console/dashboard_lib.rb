@@ -93,5 +93,3 @@ class CollisionDetector
     row*max_cols + col
   end
 end
-           end
-           end

@@ -7,13 +7,13 @@ class LimeSurvey < ActiveRecord::Base
 
   self.inheritance_column = nil
   self.primary_key = :sid
-  has_many :permission_ls_groups, :foreign_key=>:lime_survey_sid, :inverse_of=>:lime_survey
-  has_many :lime_groups, -> {order 'lime_groups.group_order'}, :foreign_key=>:sid, :inverse_of=>:lime_survey
+  has_many :permission_ls_groups, :foreign_key=>:lime_survey_sid
+  has_many :lime_groups, -> {order 'lime_groups.group_order'}, :foreign_key=>:sid
   #has_many :lime_questions, :through=>:lime_groups
   has_many :lime_surveys_languagesettings, :foreign_key=>:surveyls_survey_id
-  has_one :role_aggregate, :foreign_key=>:lime_survey_sid, :inverse_of=>:lime_survey
+  has_one :role_aggregate, :foreign_key=>:lime_survey_sid
   delegate :add_filter, :dataset, :to=>:lime_data
-  has_many :survey_assignments, :foreign_key=>:lime_survey_sid, :inverse_of=>:lime_survey
+  has_many :survey_assignments, :foreign_key=>:lime_survey_sid
 
   rails_admin do
     navigation_label "Lime Survey"
@@ -42,7 +42,15 @@ class LimeSurvey < ActiveRecord::Base
   end
 
   def response_percent
-    @response_percent ||= (completed_surveys_count.to_f / response_count) * 100
+    @response_percent ||= (response_count.to_f / token_count) * 100
+  end
+
+  def completion_percent
+    @completion_percent ||= (completed_surveys_count.to_f / token_count) * 100
+  end
+
+  def token_count
+    lime_tokens.dataset.count
   end
 
   def response_count
