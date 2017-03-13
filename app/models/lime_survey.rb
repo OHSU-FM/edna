@@ -50,7 +50,12 @@ class LimeSurvey < ActiveRecord::Base
   end
 
   def token_count
-    lime_tokens.dataset.count
+    begin
+      lime_tokens.dataset.count
+    rescue ActiveRecord::StatementInvalid => e
+      # no tokens table for this survey
+      return response_count
+    end
   end
 
   def response_count
@@ -140,5 +145,4 @@ class LimeSurvey < ActiveRecord::Base
     @lime_tokens ||= ::LimeExt::LimeTokens.new(self)
   end
 
-  end
-
+end

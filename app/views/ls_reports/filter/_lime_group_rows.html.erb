@@ -30,6 +30,7 @@
     </tr>
     <% next %>
   <% end %>
+
   <% gets_arrow = hf_pquestion_gets_dropdown?(pquestion) %>
   <tr id="qid<%= pquestion.qid %>" class="<% unless gets_arrow %>no-arrow<% end %>">
     <td <% if gets_arrow %>class="arrow"<% end %>>

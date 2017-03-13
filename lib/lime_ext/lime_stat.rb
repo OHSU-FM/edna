@@ -66,11 +66,16 @@ module LimeExt::LimeStat
         @response_rate = 0
         return
       end
-      @response_rate ||= (@response_count.to_f / total_tokens(@response_set)) * 100
+      @response_rate ||= (@response_count.to_f / total_tokens_or_responses) * 100
     end
 
-    def total_tokens response_set
-      response_set.question.lime_survey.lime_tokens.dataset.count
+    def total_tokens_or_responses
+      begin
+        @response_set.question.lime_survey.lime_tokens.dataset.count
+      rescue ActiveRecord::StatementInvalid => e
+        # no tokens table for this survey
+        return @response_set.response_total
+      end
     end
 
     ##
@@ -213,7 +218,7 @@ module LimeExt::LimeStat
       @code = code
       @item_id = item_id
       @qtype = qtype
-      @total = question.lime_survey.lime_tokens.dataset.count
+      @total = question.lime_survey.token_count
       @is_err = !data_labels.keys.include?(code)
       @answer = data_labels[code] || error_labels[code] || code
       # count occurrences or include? if is array

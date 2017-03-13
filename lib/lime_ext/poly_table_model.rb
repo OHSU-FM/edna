@@ -51,9 +51,9 @@ module LimeExt
     def column_names
       return @column_names if defined? @column_names
       query = "
-  SELECT column_name
-  FROM information_schema.columns
-  WHERE table_schema='#{LimeExt.schema}' AND table_name='#{self.class.table_name(sid)}'"
+        SELECT column_name
+        FROM information_schema.columns
+        WHERE table_schema='#{LimeExt.schema}' AND table_name='#{self.class.table_name(sid)}'"
       result = Array ActiveRecord::Base.connection.execute(query)
       @column_names = result.map{|col|col["column_name"]}
     end
