@@ -6,43 +6,43 @@
 @import 'ls_reports';
 
 body#ls_reports_filter{
-	.desc-qtype{text-decoration:underline;cursor:pointer;}
-	.popover-content{
-		font-size: 15px;
-	}    
-	.tableFloatingHeaderOriginal{
-		box-shadow: rgb(68, 68, 68) -1px 5px 2px -2px;
-	}
-	.blank-gid, .blank-gid-loading{
-height: 300px;
-	}
+  .desc-qtype{text-decoration:underline;cursor:pointer;}
+  .popover-content{
+    font-size: 15px;
+  }
+  .tableFloatingHeaderOriginal{
+    box-shadow: rgb(68, 68, 68) -1px 5px 2px -2px;
+  }
+  .blank-gid, .blank-gid-loading{
+    height: 300px;
+  }
 }
 
 table.ls_report_filter_table{
-	line-height:normal;
-	font-size:12px;
-	border-collapse:collapse;
-	// No hover for questions with no arrow
-	.no-arrow a.toggle-img:hover, .no-arrow a:hover{text-decoration:none;cursor:default;}  
-	a{
-		&.toggle-img:hover{text-decoration:underline;}
-color:#333333;
-	}
-	td{
-		text-align:left;
-	}
-	tr.totals-row > td{
-		font-weight: bold;
-		border-top: 1px solid #6E6E6E;
-	}
+  line-height:normal;
+  font-size:12px;
+  border-collapse:collapse;
+  // No hover for questions with no arrow
+  .no-arrow a.toggle-img:hover, .no-arrow a:hover{text-decoration:none;cursor:default;}
+  a{
+    &.toggle-img:hover{text-decoration:underline;}
+    color:#333333;
+  }
+  td{
+    text-align:left;
+  }
+  tr.totals-row > td{
+    font-weight: bold;
+    border-top: 1px solid #6E6E6E;
+  }
 }
 .inline-bar{
-height:10px;
+  height:10px;
 }
 
 /* Make sure that hidden divs are visible when printing */
 @media print {
-	.toggle-div{display:block !important;}
+  .toggle-div{display:block !important;}
 }
 
 

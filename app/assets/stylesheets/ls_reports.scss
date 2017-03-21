@@ -4,60 +4,60 @@
 /*= require style
  */
 .dropdown-menu > li{
-	& > span{
-display: block;
-padding: 20px 20px 3px;
-clear: both;
-       font-weight: normal;
-       line-height: 1.2;
-       white-space: nowrap;
-	}
-	&:first-child span{
-padding: 3px 20px;
-	}
-	& > a{
-		line-height: 1.2;
-	}
+  & > span{
+    display: block;
+    padding: 20px 20px 3px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  &:first-child span{
+    padding: 3px 20px;
+  }
+  & > a{
+    line-height: 1.2;
+  }
 
 }
 
 #ls_reports_nav .breadcrumb{
-	line-height: 1.1em;
-	font-size:24px;
-	background-color:transparent;
-	.dropdown{
-		font-size: 22px;
-color: #777;
-       a{
-	       margin-left: 1em;
-	       font-size: 14px;
-       }
+  line-height: 1.1em;
+  font-size:24px;
+  background-color:transparent;
+  .dropdown{
+    font-size: 22px;
+    color: #777;
+    a{
+      margin-left: 1em;
+      font-size: 14px;
+    }
 
-	}
+  }
 }
 
 
 body#ls_reports{
-	.bs-callout{
-		button{top:-10px;right:-10px;}
-	}
+  .bs-callout{
+    button{top:-10px;right:-10px;}
+  }
 }
 
 body{
-#page-content{
+  #page-content{
 
-	.main{
+    .main{
 
-	} 
-	.sidebar{
-#report-overview{
-	font-size: 9pt;
-}
-#scroll-spy-nav{
-	max-width: 262px;
-}
-}
-}
+    }
+    .sidebar{
+      #report-overview{
+        font-size: 9pt;
+      }
+      #scroll-spy-nav{
+        max-width: 262px;
+      }
+    }
+  }
 }
 
 
