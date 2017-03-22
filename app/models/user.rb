@@ -86,7 +86,10 @@ class User < ActiveRecord::Base
       self.roles.each do |role|
         # Does this role actually exist?
         # Return false if not
-        return false unless ROLES.include?(role)
+        unless ROLES.include?(role)
+          Rails.logger.error("<#{self.class} id:#{self.id} bad_role:#{role}>")
+          next
+        end
         return true if ROLES[role] >= i
       end
       return false
