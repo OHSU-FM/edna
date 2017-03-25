@@ -5,28 +5,8 @@ class LsChartMultNumeric
         @node = $(node)
         @data = data
 
-    draw: ->
-        # Heatmap for 3rd row(local mean) 
-        @heatmap_row(@node.find('tr td:nth-child(3)'))
-        @heatmap_row(@node.find('tr td:nth-child(4)'))
-
-        # Heatmap for 7rd row(pop mean) 
-        @heatmap_row(@node.find('tr td:nth-child(7)'))
-        @heatmap_row(@node.find('tr td:nth-child(8)'))
-
-    heatmap_row: ($elems) ->
-        vals = []
-        $elems.each ->
-            v = parseFloat($(this).text())
-            vals.push(v)
-        vals = $.unique(vals)
-        cmap = chroma.scale(['blue', 'red']).domain(vals, 5, 'quantiles')
-        $elems.each ->
-            v = parseInt($(this).text())
-            $(this).css('color', cmap(v).hex())
-
 class LsChartYesNo
-   
+
     constructor: (node, data) ->
         @node = $(node)
         @data = data
@@ -34,7 +14,7 @@ class LsChartYesNo
         @green = '#1f8040'
         @grey = '#777'
         return
-   
+
     draw: ->
        @node.css('width', @data.percent)
        @node.css('height', 10)
@@ -44,13 +24,13 @@ class LsChartYesNo
     color: ->
         if @data.code == 'N'
             return @red
-        else if @data.code == 'Y' 
+        else if @data.code == 'Y'
             return @green
         else
             return @grey
 
 class LsChartGender
-   
+
     constructor: (node, data) ->
         @node = $(node)
         @data = data
@@ -58,7 +38,7 @@ class LsChartGender
         @blue = 'blue'
         @grey = '#777'
         return
-   
+
     draw: ->
        @node.css('width', @data.percent)
        @node.css('height', 10)
@@ -68,7 +48,7 @@ class LsChartGender
     color: ->
         if @data.code == 'M'
             return @blue
-        else if @data.code == 'F' 
+        else if @data.code == 'F'
             return @pink
         else
             return @grey
@@ -83,13 +63,13 @@ class LsChartListDrop
         @node = $(node)
         @data = data
         return
-    
+
     draw: ->
         @node.css('width', @data.percent)
         @node.css('height', 10)
         @node.css('background-color', @color())
         return
-    
+
     color: ->
         return @colors10[@data.item_id] || @colors40[@data.item_id]
 
@@ -97,11 +77,11 @@ $(document).ready ->
     # Dont run if we are included by another page
     return if $('body').attr('id') != 'ls_reports_filter'
 
-    window.scroll_spy_init(170) 
+    window.scroll_spy_init(170)
 
-    # Sticky table header 
+    # Sticky table header
     $('body table.report').stickyTableHeaders({fixedOffset: $('.navbar') });
-    
+
 
     # Utility function for toggle
     toggle_row = (node) ->
@@ -112,7 +92,7 @@ $(document).ready ->
         else
             show_row(node);
         return
-    
+
     # hide sub row
     hide_row = (node) ->
         $(node).parents('tr').find('.arrow-open').removeClass('arrow-open').
@@ -127,14 +107,14 @@ $(document).ready ->
     $(document).on 'click', '.toggle-img', (event) ->
         toggle_row(this);
 
-    # ??? 
+    # ???
     $('a.auto-colored-mean').each ->
         $(@).value
 
     # Load charts
     $('.ls-chart').each ->
         load_ls_chart.call @
-    
+
     waypoint_handler = (direction, pos) ->
         waypoint = this
         waypoint.destroy()
@@ -167,7 +147,7 @@ $(document).ready ->
                 $target.html('
                 <td colspan="13">
                     <div class="alert alert-warning">
-                        Sorry! There was a server error while loading the data. We have been notified of the 
+                        Sorry! There was a server error while loading the data. We have been notified of the
                         situation.
                     </div>
                 </td>
@@ -183,9 +163,9 @@ $(document).ready ->
                     load_ls_chart.call @
                 $tr.remove() # Remove parent row
                 refresh() # Update navbar
-         
+
         })
-    
+
     blank_gids = $('.blank-gid')
     way_positions = ['170%', '100%', '50%', '5%']
     for pos in way_positions
@@ -194,17 +174,17 @@ $(document).ready ->
         , {offset: pos, continuous: false})
 
     $(document).on 'scroll-spy-nav:after-click', 'a', (e) ->
-        $target = $($('.active a').attr('href')).next('.blank-gid') 
+        $target = $($('.active a').attr('href')).next('.blank-gid')
         $target.trigger('ls_reports_filter:load')
         return
 
     $(document).on 'ls_reports_filter:load', '.blank-gid', (e) ->
         autoload_partial.call(this)
-    
+
     $(document).on 'click', '.partial-url', (e) ->
         autoload_partial.call(this)
 
-    
+
     autoload_partial()
     refresh()
     return

@@ -59,15 +59,15 @@
       <tr class="totals-row">
         <td>Totals:</td>
         <td><%= count_total     %></td>
-        <td><%= percent_total.round(2)   %>%<super>*</super></td>
+        <td colspan="2"></td>
         <td></td>
         <td><%= count_total_u   %></td>
-        <td><%= percent_total_u.round(2) %>%<super>*</super></td>
+        <td colspan="2"></td>
         <td></td>
       </tr>
 
       </tbody>
     </table>
-    <small>* Questions of this type can have totals over 100%</small>
+    <small>Multiple answers allowed, so total may be greater than Response Count</small>
   </div>
 <% end %>

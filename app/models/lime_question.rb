@@ -79,27 +79,6 @@ class LimeQuestion < ActiveRecord::Base
     lime_survey.lime_data
   end
 
-  #################################################################
-  ## Get attributes possibly from cache                           #
-  #def lime_question_attributes                                   #
-  #    return [] if qid.to_s.empty?                               #
-  #    return @lime_question_attributes if defined? @lime_question_attributes
-  #    @lime_question_attributes = get_lq_attributes              #
-  #end                                                            #
-  #                                                               #
-  #                                                            #  #
-  #                                                           #   #
-  ###                                                        ######
-  ## Get attributes in database for this question             #
-  #def get_lq_attributes                                       #
-  #    result = HashWithIndifferentAccess.new
-  #    attrs = ActiveRecord::Base.connection.execute("SELECT attribute, value FROM #{self.class.table_name.singularize}_attributes where qid=#{qid}").to_a
-  #    attrs.each do |attr|
-  #        result[attr['attribute']] = attr['value']
-  #    end
-  #    return result
-  #end
-
   def qattrs
     return @qattrs if defined? @qattrs
     @qattrs = HashWithIndifferentAccess.new
@@ -199,5 +178,4 @@ class LimeQuestion < ActiveRecord::Base
   def wipe_response_set?
     return @wipe_response_set || false
   end
-
-  end
+end

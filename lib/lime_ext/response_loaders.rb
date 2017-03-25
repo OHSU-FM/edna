@@ -402,12 +402,17 @@ module LimeExt::ResponseLoaders
         return @data_labels
       end
 
+      # since each response can have mult answers, only increment count once if
+      # a response has an answer
+      # ex: related_data = {1: [y,nil,y], 2: [y,y,nil]} should give a
+      # response_count of 3, whereas if we just counted the number of y's, we'd
+      # get 4
       def response_count
         return @response_count if defined? @response_count
         @response_count ||= if data_empty?
           0
         else
-          related_data.map {|q, r_h| r_h.count{|v| !v.to_s.empty? } }.sum
+          related_data.values.transpose().count{|v| v.any?{|e| !e.to_s.empty? }}
         end
       end
     end
