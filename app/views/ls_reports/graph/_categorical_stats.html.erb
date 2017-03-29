@@ -30,6 +30,7 @@
             <% stats_u.categorical_stats.each do |cat_u| %> 
                 <% 
                     cat = stats.categorical_stats.find{|st|st.code == cat_u.code}
+                    next if cat.nil? 
                     next if cat_u.is_err && cat.frequency == 0 && cat_u.frequency == 0
                     count_total += cat.frequency
                     count_total_u += cat_u.frequency
@@ -39,7 +40,7 @@
 
             <tr>
                 <td><%= cat_u.code %></td>
-                <td><%= cat_u.answer.html_safe %></td>
+                <td><%= cat_u.answer.to_s.html_safe %></td>
                 <td><%= cat.frequency %></td>
                 <td><%= cat.percent.round(2) %>%</td>
                 <td>

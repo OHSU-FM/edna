@@ -30,8 +30,6 @@ class DashboardController < ApplicationController
     end
   end
 
-
-
   def create
     @dash = Dashboard.where(:user_id=>current_user.id).first_or_initialize
     @dash.assign_attributes(params[:dashboard])

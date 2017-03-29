@@ -20,7 +20,4 @@ module LsReports::SpreadsheetHelper
     end
     return result.transpose
   end
-
-
-
 end

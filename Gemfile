@@ -11,9 +11,11 @@ gem 'rdoc' # documentation
 # Database
 gem 'pg'
 gem 'composite_primary_keys'
-#gem 'goldiloader'
+
 # Record Versioning
-gem 'paper_trail'
+gem 'paper_trail', '~> 4.0.0.rc'
+
+gem 'php-serialize'
 
 ##############################
 # Admin/Config/Security
@@ -35,6 +37,8 @@ gem 'cancancan'
 gem "devise"
 # LDAP
 gem 'devise_ldap_authenticatable'
+# Prevent Excessive log file information
+gem 'lograge'
 
 ##############################
 # JavaScript and CSS
@@ -46,6 +50,13 @@ gem 'uglifier'
 # jquery
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
+# - Breaks:
+#   -- dashboard
+#   -- reports/filter
+#   -- reports/graph
+#gem 'turbolinks'
+
 # CSS / js
 gem 'bootstrap-sass'#, '~> 3.1.1.1'
 # Random bug:
@@ -85,7 +96,6 @@ gem 'descriptive-statistics'
 ##############################
 gem 'statistics2'
 
-
 ##############################
 # Environments
 ##############################
@@ -93,6 +103,19 @@ gem 'statistics2'
 group :test do 
     gem 'minitest-rails'
     gem "minitest-rails-capybara"
+    gem 'rails-perftest'
+    gem "factory_girl_rails", "~> 4.0"
+
+end
+
+group :test, :development do
+    if RUBY_VERSION =~ /^1.9.3/
+        # Better error messages in development
+        gem 'better_errors', '~> 1.1.0'
+    elsif RUBY_VERSION =~ /^2.2./
+        gem 'pry-rails'
+    end
+
 end
 
 group :production do
@@ -104,17 +127,13 @@ end
 group :development do
     gem "rack-mini-profiler", require: false
     gem 'flamegraph'
-    gem 'factory_girl'
-    #gem 'bullet' 
 
     if RUBY_VERSION =~ /^1.9.3/
-        gem 'debugger'
         # Better error messages in development
         gem 'better_errors', '~> 1.1.0'
     elsif RUBY_VERSION =~ /^2.2./
         gem 'stackprof'
         gem 'ruby-prof'
-        gem 'pry-rails'
         gem 'better_errors'
     end
      
@@ -128,4 +147,3 @@ group :development do
     gem 'binding_of_caller'#, :platforms=>[:ruby_19, :ruby_22]
     gem 'redcarpet'
 end
-

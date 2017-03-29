@@ -7,7 +7,6 @@ class DashboardWidgetsController < ApplicationController
       format.html{ render :layout=>false} # show
       format.json{ render :json=>{:dash=>@dash}}
     end
-
   end
 
   def new

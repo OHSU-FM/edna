@@ -2,11 +2,10 @@ class LsReports::SpreadsheetController < LsReports::BaseController
   layout 'full_width'
   include LsReports::SpreadsheetHelper
 
-  ##
-  # show lime_survey
   def show
     load_data
-    cols = show_params[:cols].map{|v|v.to_i}
+    cols = show_params[:cols].is_a?(Array) ? show_params[:cols] : []
+    cols.map{|v|v.to_i}
     if @fm.not_found?
       # Throw redirect on not found
       flash[:error] = 'Nothing left to show after filtering'

@@ -1,10 +1,13 @@
 module LsReportsHelper
 
+  def hf_sidebar_link_label question, full_desc
+    (full_desc ? strip_tags(question.question) : question.title.titleize).html_safe
+  end
+
   class AccessDenied < Exception; end
 
   MAX_Q = 10
 
-  ##
   # Generate a unique cache key for this Group ID (and its user's filters)
   def cache_key_for_group virt_group, opts={}
     group = virt_group.group
@@ -110,6 +113,8 @@ module LsReportsHelper
       add_permission_group_filters
       add_all_param_filters
       do_titles
+      Rails.logger.info lime_survey.lime_data.query
+      Rails.logger.info lime_survey_unfiltered.lime_data.query
     end
 
     def its_important_to_check_ids

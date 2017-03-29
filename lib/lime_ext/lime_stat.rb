@@ -55,6 +55,7 @@ module LimeExt::LimeStat
       pcat
     end
 
+
     ##
     # Prevent gon/view from having access to question/role_aggregate
     def as_json(options=nil)
@@ -66,16 +67,7 @@ module LimeExt::LimeStat
         @response_rate = 0
         return
       end
-      @response_rate ||= (@response_count.to_f / total_tokens_or_responses) * 100
-    end
-
-    def total_tokens_or_responses
-      begin
-        @response_set.question.lime_survey.lime_tokens.dataset.count
-      rescue ActiveRecord::StatementInvalid => e
-        # no tokens table for this survey
-        return @response_set.response_total
-      end
+      @response_rate ||= (@response_count.to_f / @response_set.response_total) * 100
     end
 
     ##
@@ -96,7 +88,6 @@ module LimeExt::LimeStat
     def count_unique_related fieldname
       return 0 if fieldname.to_s.empty?       # No fieldname assigned
       return 0 unless response_set.data       # No data in our dataset
-      return deep_count_unique_related(fieldname) if @response_set.data.any?{|d| d.respond_to? :data}
 
       # Get data for fieldname
       field_data =  @question.lime_data.responses_for(fieldname)
@@ -106,15 +97,6 @@ module LimeExt::LimeStat
       return 0 if idx.empty?
       # get only values in idx, count uniq
       return field_data.values_at(*idx).uniq.count
-    end
-
-    def deep_count_unique_related fieldname
-      field_data =  @question.lime_data.responses_for(fieldname)
-      idx = []
-      @response_set.data.each{|rs|
-        rs.data.each_with_index{|val, i| idx.push(i) if val != ''}
-      }
-      field_data.values_at(*idx).uniq.count
     end
   end
 
@@ -218,7 +200,7 @@ module LimeExt::LimeStat
       @code = code
       @item_id = item_id
       @qtype = qtype
-      @total = question.lime_survey.token_count
+      @total = data.count
       @is_err = !data_labels.keys.include?(code)
       @answer = data_labels[code] || error_labels[code] || code
       # count occurrences or include? if is array

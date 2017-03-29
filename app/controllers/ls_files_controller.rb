@@ -3,7 +3,6 @@ class LsFilesController < ApplicationController
   include LsReportsHelper
 
   def show
-
     # Pull lime_survey dataset
     fm = LsReportsHelper::FilterManager.new current_user, params[:sid]
     authorize! :read_raw_data, fm.lime_survey
@@ -31,10 +30,10 @@ class LsFilesController < ApplicationController
 
     # Redirect if we can't find the file on disk
     fpath = "#{Settings.lime_uploads_dir}/surveys/#{fm.lime_survey.sid}/files/#{f_inf['filename']}"
-      unless File.exists? fpath
-        #simple_redirect
-        raise ActionController::RoutingError.new('File not Found')
-        return
+    unless File.exists? fpath
+      #simple_redirect
+      raise ActionController::RoutingError.new('File not Found')
+      return
     end
 
     # Send the file

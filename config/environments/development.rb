@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Filter log file
+  config.lograge.enabled = true
   # Reload files in the lib directory
   config.autoload_paths += %W(#{config.root}/lib/edna_console)
 

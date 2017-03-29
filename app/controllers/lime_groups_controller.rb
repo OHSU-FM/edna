@@ -12,7 +12,6 @@ class LimeGroupsController < ApplicationController
       where(sid:params[:id].to_i).
       includes(:t_questions).first
 
-
     unless @lime_group
       flash[:error] = "lime_group  not found"
       redirect_to :action => :index

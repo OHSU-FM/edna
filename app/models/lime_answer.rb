@@ -2,7 +2,6 @@ class LimeAnswer < ActiveRecord::Base
 
   attr_accessor :mystring
 
-
   self.inheritance_column = nil
   self.primary_key = :qid, :code
   belongs_to :lime_question, primary_key: "qid", :foreign_key=>:qid, :inverse_of=>:lime_answers
@@ -27,7 +26,4 @@ class LimeAnswer < ActiveRecord::Base
     r_data = lime_group.dataset.find{|tt|tt[q_name]}
     return r_data
   end
-
-
 end
-

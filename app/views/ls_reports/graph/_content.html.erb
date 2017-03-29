@@ -1,4 +1,4 @@
-        <% cache( :action_suffix => "ls_report_controller_#{@user_id}_#{@pk}_#{@agg}_#{@id}") do %>
+    <% cache( :action_suffix => "ls_report_controller_#{@user_id}_#{@pk}_#{@agg}_#{@id}") do %>
             <% @virtual_groups.each do |lgroup| %>
                 <h4 class="question-group" id="gid<%= lgroup.gid %>" style="color:green"><%= strip_tags(lgroup.group_name).html_safe %></h4>
                 <% lgroup.parent_questions.each do |pquestion| %>

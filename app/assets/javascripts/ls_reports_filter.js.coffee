@@ -5,6 +5,8 @@ class LsChartMultNumeric
         @node = $(node)
         @data = data
 
+    draw: ->
+
 class LsChartYesNo
 
     constructor: (node, data) ->

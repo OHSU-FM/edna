@@ -79,16 +79,6 @@ class Ability
       can :crud, QuestionWidget, :user_id=>user.id
     end
 
-    # allow access to reports and stats if an alias is set for user
-    if user.p4_program_id.to_s != ''
-      if user.can_stats?
-        can :read, :stats
-      end
-      if user.can_reports?
-        can :read, :reports
-      end
-    end
-
     can :read, LimeSurvey do |lime_survey|
       # We check permissions by checking if permission_group says everything is ready
       # If we are missing user_externals etc... you will still receive a true on can? :read

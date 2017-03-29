@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
 
       begin
         respond_to do |format|
-          format.html {redirect_to opts[:to]}
+          format.html {redirect_to opts[:to] }
           format.json { render :json=>opts[:json], :status=>opts[:status] }
         end
       rescue => e
@@ -72,6 +72,14 @@ class ApplicationController < ActionController::Base
 
     def after_sign_in_path_for(resource)
       auto_path
+    end
+
+    def simple_respond opts=nil
+      opts ||= params
+      respond_to do |format|
+        layout = !(opts[:layout].to_s == 'false')
+        format.html { render layout: layout } # show
+      end
     end
 
 

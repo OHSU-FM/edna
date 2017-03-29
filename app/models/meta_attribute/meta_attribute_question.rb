@@ -34,6 +34,5 @@ module MetaAttribute
     def data_type_enum
       @data_type_enum = self.class.pluck(:data_type).uniq
     end
-
   end
 end

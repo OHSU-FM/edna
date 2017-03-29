@@ -1,4 +1,3 @@
-
 require './lib/rails_admin/config/actions/refresh'
 
 showable_models = ['Chart', 'Dashboard']
@@ -67,7 +66,7 @@ RailsAdmin.config do |config|
   config.excluded_models << %w'Mini-profiler-resources DataMaker DashboardLib ArExtensions DashboardWidget'
 
   # Include specific models (exclude the others):
-  #config.included_models = %w'User Version Chart ChartSeries MetaAttribute::MetaAttributeEntity
+  #config.included_models << %w'LimeExt::DbRule'
   #  MetaAttribute::MetaAttributeQuestion MetaAttribute::MetaAttributeEntityGroup
   #  P4Resident P4Program DashboardWidget Dashboard ContentSlug MetaAttribute::MetaAttributeValue MetaAttribute::MetaAttributeStatistic'
 
@@ -75,11 +74,8 @@ RailsAdmin.config do |config|
   #config.label_methods << :description # Default is [:name, :title]
 
   ################  Model configuration  ################
-  #%w(VersionNote UnexplainedVersion Version).each do |model_name|
-  #  config.model model_name do
-  #      navigation_label "Dataset Changes"
-  #  end
-
+  #config.model 'LimeExt::SyncTrigger' do
+  #    navigation_label "Lime Survey"
   #end
 
 end

@@ -1,3 +1,5 @@
+require 'php_serialize'
+
 class LimeSurvey < ActiveRecord::Base
 
   CONFIG_GROUP_CODE   = 'ReindeerConfig'
@@ -7,16 +9,34 @@ class LimeSurvey < ActiveRecord::Base
 
   self.inheritance_column = nil
   self.primary_key = :sid
-  has_many :permission_ls_groups, :foreign_key=>:lime_survey_sid
-  has_many :lime_groups, -> {order 'lime_groups.group_order'}, :foreign_key=>:sid
+  has_many :permission_ls_groups, :foreign_key=>:lime_survey_sid, :inverse_of=>:lime_survey
+  has_many :lime_groups, -> {order 'lime_groups.group_order'}, :foreign_key=>:sid, :inverse_of=>:lime_survey
   #has_many :lime_questions, :through=>:lime_groups
   has_many :lime_surveys_languagesettings, :foreign_key=>:surveyls_survey_id
-  has_one :role_aggregate, :foreign_key=>:lime_survey_sid
+  has_one :role_aggregate, :foreign_key=>:lime_survey_sid, :inverse_of=>:lime_survey
   delegate :add_filter, :dataset, :to=>:lime_data
-  has_many :survey_assignments, :foreign_key=>:lime_survey_sid
+  has_many :survey_assignments, :foreign_key=>:lime_survey_sid, :inverse_of=>:lime_survey
 
   rails_admin do
     navigation_label "Lime Survey"
+  end
+
+  ##
+  # Description of token attributes
+  def token_attrs
+    return @token_attrs if defined? @token_attrs
+    attr_data = attributedescriptions.to_s
+    if (attributedescriptions.to_s =~ /^a:\d+:\{/).nil?
+      @token_attrs = HashWithIndifferentAccess.new(
+        YAML.load(attr_data)
+      )
+    else
+      @token_attrs = HashWithIndifferentAccess.new(
+        PHP.unserialize(attr_data)
+      )
+    end
+    @token_attrs = {} unless @token_attrs.is_a? Hash
+    @token_attrs
   end
 
   def parent_questions
@@ -29,6 +49,15 @@ class LimeSurvey < ActiveRecord::Base
 
   def completed_surveys_count
     @completed_surveys_count ||= dataset.count{|row|!row['submitdate'].nil?}
+  end
+
+  def token_count
+    begin
+      lime_tokens.dataset.count
+    rescue ActiveRecord::StatementInvalid => e
+      # no token table for this survey
+      return response_count
+    end
   end
 
   def started_surveys_count
@@ -47,15 +76,6 @@ class LimeSurvey < ActiveRecord::Base
 
   def completion_percent
     @completion_percent ||= (completed_surveys_count.to_f / token_count) * 100
-  end
-
-  def token_count
-    begin
-      lime_tokens.dataset.count
-    rescue ActiveRecord::StatementInvalid => e
-      # no tokens table for this survey
-      return response_count
-    end
   end
 
   def response_count
@@ -146,3 +166,4 @@ class LimeSurvey < ActiveRecord::Base
   end
 
 end
+

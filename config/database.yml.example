@@ -24,3 +24,4 @@ testing:
   password: 'password'
   schema_search_path: "transform,target,source,public" #can be comma seperated
   reconnect: false
+

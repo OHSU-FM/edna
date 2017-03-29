@@ -10,7 +10,7 @@ class DashboardWidget < ActiveRecord::Base
   validates_presence_of :dashboard
   # Only require existence of widget if one was added
   validates_presence_of :widget, :if=> Proc.new { |o| !(o.widget_type.nil? || o.widget_id.nil?) }
-
+  #
   before_save :set_status
   after_save :set_status
   before_destroy :optionally_delete_widget

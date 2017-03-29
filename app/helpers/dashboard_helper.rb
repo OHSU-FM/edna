@@ -15,10 +15,8 @@ module DashboardHelper
     end
   end
 
-
   def self.dashboard_defaults dash
     widget = dash.dashboard_widgets.build
     cont = ContentSlug.new
-
   end
 end

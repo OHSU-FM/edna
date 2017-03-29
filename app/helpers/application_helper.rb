@@ -2,7 +2,11 @@ module ApplicationHelper
 
   # Link wrapped in li for use in the nav bar
   def nav_link_to text, link, opts={}
-    return "<li>#{link_to(text, link, opts)}</li>".html_safe
+    content_tag :li, link_to(text, link, opts), class: (nav_link_active?(link) ? 'active' : '')
+  end
+
+  def nav_link_active? link
+    request.path == link
   end
 
   # Flash message css classes for use with bootstrap

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :is_ldap,
     :password, :password_confirmation,
-    :remember_me, :p4_program_id, :username,
+    :remember_me, :username,
     :user_externals_attributes, :permission_group_id
 
   attr_accessor :login
@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
   has_many :charts, :inverse_of=>:user, :dependent=>:destroy
   belongs_to :permission_group, :inverse_of=>:users
   has_many :permission_ls_groups, :through=>:permission_group
-  belongs_to :p4_program, :foreign_key=>:p4_program_id, :primary_key=>:p4_program_id
   has_many :user_externals, :dependent=>:delete_all, :inverse_of=>:user
   has_one :dashboard, :dependent=>:delete
   has_many :dashboard_widgets, :through=>:dashboard, :dependent=>:delete_all
@@ -29,7 +28,6 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_externals, :allow_destroy=>true
 
-  validates_presence_of :p4_program_id, :if => :p4_program_id_required?
   validates :username,
     :uniqueness => {
     :case_sensitive => false
@@ -104,15 +102,6 @@ class User < ActiveRecord::Base
 
   def roles_enum
     ROLES.keys
-  end
-
-  def p4_program_id_required?
-    # Should we require this user to have a p4_program_id?
-    !(self.roles & [:admin, :superadmin, :can_reports, :can_stats, :can_chart]).empty?
-  end
-
-  def p4_program_id_enum
-    P4Program.pluck(:p4_program_id)
   end
 
   def title
@@ -195,7 +184,6 @@ class User < ActiveRecord::Base
 
     group :site_permissions do
       active false
-      field :p4_program
       ROLES.each{|key, val|
         field key, :boolean
       }
@@ -238,7 +226,7 @@ class User < ActiveRecord::Base
         :user_externals, :current_sign_in_at, :sign_in_count, :permission_ls_groups,
         :reset_password_sent_at, :dashboard, :charts, :remember_created_at,
         :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip,
-        :p4_program, :participant, :can_stats, :can_reports, :can_lime, :can_view_spreadsheet, :can_lime_all
+        :participant, :can_stats, :can_reports, :can_lime, :can_view_spreadsheet, :can_lime_all
     end
 
     exclude_fields [:roles]

@@ -107,112 +107,112 @@ module ReportsHelper
     # TODO: Debug, remove
     def to_s
       "\n<#{self.class.name}
-  :category=>\"#{category}\" :depth=>#{@depth} :all_sorters:=>#{@all_sorters.size}
-  :sub_sorters=>#{sub_sorters.length} :statistics=>#{statistics.count}>"
-  end
+            :category=>\"#{category}\" :depth=>#{@depth} :all_sorters:=>#{@all_sorters.size}
+            :sub_sorters=>#{sub_sorters.length} :statistics=>#{statistics.count}>"
+    end
 
-      # What should be displayed in scroll-spy
-      def title
-        @category.split(':')[@depth-1].to_s.strip
+    # What should be displayed in scroll-spy
+    def title
+      @category.split(':')[@depth-1].to_s.strip
+    end
+
+    # Sanitize category for use as a html node id value
+    def sanitized_category
+      return category.underscore.gsub(/ /, '_').gsub(/[^a-z_0-9]/,'')
+    end
+
+    # Sub categories
+    def sub_sorters
+      @sub_sorters ||= []
+    end
+
+    # All Categories
+    def all_sorters opts={}
+      if opts[:depth].to_i > 0
+        return @all_sorters.
+          select{|sorter|sorter.depth==opts[:depth]}.
+          sort_by{|sorter|sorter.order}
       end
+      return @all_sorters
+    end
 
-      # Sanitize category for use as a html node id value
-      def sanitized_category
-        return category.underscore.gsub(/ /, '_').gsub(/[^a-z_0-9]/,'')
-      end
+    # Does this cat_name belong to us or in a child??
+    def category_matches? cat_name
+      return cat_name.include?(category) || category == cat_name
+    end
 
-      # Sub categories
-      def sub_sorters
-        @sub_sorters ||= []
-      end
+    # Find all sub_sorters that are related to this cat_name
+    def find_sorters cat_name
+      sub_sorters.select{|ss|ss.category_matches?(cat_name)}
+    end
 
-      # All Categories
-      def all_sorters opts={}
-        if opts[:depth].to_i > 0
-          return @all_sorters.
-            select{|sorter|sorter.depth==opts[:depth]}.
-            sort_by{|sorter|sorter.order}
-        end
-        return @all_sorters
-      end
+    #
+    def add_statistic stat
+      # cat name
+      cat_name = stat.category.to_s               # name alias for category
+      cat_arr = cat_name.split(':')               # Split of
 
-      # Does this cat_name belong to us or in a child??
-      def category_matches? cat_name
-        return cat_name.include?(category) || category == cat_name
-      end
-
-      # Find all sub_sorters that are related to this cat_name
-      def find_sorters cat_name
-        sub_sorters.select{|ss|ss.category_matches?(cat_name)}
-      end
-
-      #
-      def add_statistic stat
-        # cat name
-        cat_name = stat.category.to_s               # name alias for category
-        cat_arr = cat_name.split(':')               # Split of
-
-        # This stat has the exact same category as us, lets add it
-        if category == cat_name
-          # This question belongs in this bin
-          statistics.push stat
-          return
-        end
-
-        # Add the statistic to a sub sorter if
-        all_sorters.each do |sorter|
-          # Do we have any sub_sorters with the same title?
-          if sorter.category == cat_name
-            sorter.add_statistic stat
-            return
-          end
-        end
-
-        # Add the statistic to a sub sorter if
-        find_sorters(cat_name).each do |sorter|
-          if sorter.sub_sorters.size < MAX_SUBCATEGORIES
-            # Do we have any sub_sorters with the same title?
-            sorter.add_statistic stat
-            return
-          end
-        end
-
-        # We need to create a sub sorter
-        sub_sorter = self.class.new(cat_name, @depth+1, @all_sorters)
-        sub_sorter.add_statistic stat
-        sub_sorters.push sub_sorter
-        @all_sorters.push sub_sorter
-      end
-
-      # add many statistics to this sorter
-      # - Possibly add them recursively
-      def add_statistics stats_arr
-        stats_arr.each do |stats|
-          add_statistic stats
-        end
+      # This stat has the exact same category as us, lets add it
+      if category == cat_name
+        # This question belongs in this bin
+        statistics.push stat
         return
       end
 
-      # List of all statistics in this sorter
-      def statistics
-        @statistics ||= []
-      end
-
-      # Add roman numerals to categories with duplicate names
-      def count_categories!
-        counts = Hash.new 0
-        modify = []
-        @all_sorters.each do |sorter|
-          counts[sorter.category] += 1
-          if @all_sorters.count{|xx|xx.category == sorter.category} > 1
-            modify.push [sorter, counts[sorter.category]]
-          end
-        end
-        modify.each do |sorter, count|
-          sorter.category += " #{count.to_roman}"
+      # Add the statistic to a sub sorter if
+      all_sorters.each do |sorter|
+        # Do we have any sub_sorters with the same title?
+        if sorter.category == cat_name
+          sorter.add_statistic stat
+          return
         end
       end
 
+      # Add the statistic to a sub sorter if
+      find_sorters(cat_name).each do |sorter|
+        if sorter.sub_sorters.size < MAX_SUBCATEGORIES
+          # Do we have any sub_sorters with the same title?
+          sorter.add_statistic stat
+          return
+        end
+      end
+
+      # We need to create a sub sorter
+      sub_sorter = self.class.new(cat_name, @depth+1, @all_sorters)
+      sub_sorter.add_statistic stat
+      sub_sorters.push sub_sorter
+      @all_sorters.push sub_sorter
+    end
+
+    # add many statistics to this sorter
+    # - Possibly add them recursively
+    def add_statistics stats_arr
+      stats_arr.each do |stats|
+        add_statistic stats
+      end
+      return
+    end
+
+    # List of all statistics in this sorter
+    def statistics
+      @statistics ||= []
+    end
+
+    # Add roman numerals to categories with duplicate names
+    def count_categories!
+      counts = Hash.new 0
+      modify = []
+      @all_sorters.each do |sorter|
+        counts[sorter.category] += 1
+        if @all_sorters.count{|xx|xx.category == sorter.category} > 1
+          modify.push [sorter, counts[sorter.category]]
+        end
+      end
+      modify.each do |sorter, count|
+        sorter.category += " #{count.to_roman}"
+      end
     end
 
   end
+
+end

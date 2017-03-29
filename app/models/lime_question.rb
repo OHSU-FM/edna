@@ -42,7 +42,7 @@ class LimeQuestion < ActiveRecord::Base
   has_many :lime_answers, :primary_key=> "qid", :foreign_key=> "qid", :inverse_of=>:lime_question
   #has_many :role_aggregates, :foreign_key=>:lime_survey_sid#, :inverse_of=>:role_aggregates
   has_many :lime_question_attributes, :foreign_key=>:qid, :inverse_of=>:lime_question
-  has_many :permission_ls_group_filters, :inverse_of=>:lime_question
+  has_many :permission_ls_group_filters, :inverse_of=>:lime_question, primary_key: :qid, foreign_key: :lime_question_qid
 
   rails_admin do
     navigation_label "Lime Survey"

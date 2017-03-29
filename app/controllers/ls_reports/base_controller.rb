@@ -1,17 +1,11 @@
 class LsReports::BaseController < ApplicationController
   include LsReportsHelper
   layout 'full_width_margins'
-  before_filter :set_format, :only=>:show_part
-
-  def set_format
-    request.format = :json
-  end
 
   ##
   # show lime_survey
   def show
     load_data
-
     if @fm.not_found?
       # Throw redirect on not found
       flash[:error] = 'Nothing left to show after filtering'
@@ -40,6 +34,7 @@ class LsReports::BaseController < ApplicationController
     end
 
     respond_to do |format|
+      format.html { render template: 'ls_reports/shared/show_part.html'}
       format.json { render 'ls_reports/shared/show_part.json' }
     end
   end
@@ -65,6 +60,9 @@ class LsReports::BaseController < ApplicationController
     @hide_agg = fm.hide_agg
     @hide_pk = fm.hide_pk
     @virtual_groups = fm.virtual_groups
+    @filtered_label = @role_aggregate.get_pk_label
+    @unfiltered_label = @role_aggregate.get_pk_label.pluralize
+    @filtered_label.pluralize if @fm.filters_equal
     # authorize with cancancan
     authorize! :read, @lime_survey
     authorize! :read_raw_data, @lime_survey if will_view_raw_data?

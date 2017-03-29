@@ -91,7 +91,7 @@ class Chart < ActiveRecord::Base
 
   def aggregator_type_enum
     return %w'count countUnique listUnique intSum sum average sumOverSum ub80 lb80 sumAsFractionOfTotal sumAsFractionOfRow sumAsFractionOfCol
-    countAsFractionOfTotal countAsFractionOfRow countAsFractionOfCol undefined'
+            countAsFractionOfTotal countAsFractionOfRow countAsFractionOfCol undefined'
   end
 
   def chart_type_name

@@ -1,16 +1,16 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-
+  
   # ==> Advanced LDAP Configuration
   # config.ldap_auth_username_builder = Proc.new() {|attribute, login, ldap|
   #      debugger
   #      puts attribute
   #      puts login
-  #
+  #      
   #    "#{attribute}=#{login},#{ldap.base}" }
-
-  # ==> LDAP Configuration
+  
+  # ==> LDAP Configuration 
   config.ldap_logger = true
   config.ldap_create_user = true
   # config.ldap_update_password = true
@@ -19,7 +19,7 @@ Devise.setup do |config|
   #config.ldap_check_attributes = false
   config.ldap_use_admin_to_bind = true #false
   #config.ldap_ad_group_check = false
-
+  
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
@@ -158,10 +158,10 @@ Devise.setup do |config|
   # to give user feedback and not to assert the e-mail validity.
   config.email_regexp = /\A[^@]+@[^@]+\z/
 
-    # ==> Configuration for :timeoutable
-    # The time you want to timeout the user session without activity. After this
-    # time the user will be asked for credentials again. Default is 30 minutes.
-    config.timeout_in = (Settings.devise.timeout_in || 30).minutes
+  # ==> Configuration for :timeoutable
+  # The time you want to timeout the user session without activity. After this
+  # time the user will be asked for credentials again. Default is 30 minutes.
+  config.timeout_in = (Settings.devise.timeout_in || 30).minutes
 
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = false
@@ -267,4 +267,4 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
-  end
+end

@@ -23,48 +23,48 @@
         </tr>
       </thead>
       <tbody>
-      <%
-        count_total = 0
-        count_total_u = 0
-        percent_total = 0
-        percent_total_u = 0
-      %>
-
-      <% question_u.stats.categorical_stats.each do |stat_u| %>
-        <% stat = question.stats.categorical_stats.find{|st|st.code == stat_u.code} %>
-        <% next if stat_u.is_err && stat_u.frequency == 0 %>
-
         <%
-          count_total += stat.frequency
-          count_total_u += stat_u.frequency
-          percent_total += stat.percent
-          percent_total_u += stat_u.percent
+          count_total = 0
+          count_total_u = 0
+          percent_total = 0
+          percent_total_u = 0
         %>
 
-        <tr>
-          <% ans = stat_u.answer %>
-          <td><%= (ans.empty? ? '<span class="link" data-toggle="tooltip" title="There were no options checked for this question">Nothing marked</span>' : ans).html_safe  %></td>
-          <td><%= stat.frequency %></td>
-          <td><%= stat.percent.round(1) %>%</td>
-          <td>
-            <%= tag :div, 'data-chart-data'=>stat.to_json, :class=>'ls-chart' %>
-          </td>
-          <td><%= stat_u.frequency %></td>
-          <td><%= stat_u.percent.round(1) %>%</td>
-          <td>
-            <%= tag :div, 'data-chart-data'=>stat_u.to_json, :class=>'ls-chart' %>
-          </td>
+        <% question_u.stats.categorical_stats.each do |stat_u| %>
+          <% stat = question.stats.categorical_stats.find{|st|st.code == stat_u.code} %>
+          <% next if stat_u.is_err && stat_u.frequency == 0 %>
+
+          <%
+            count_total += stat.frequency
+            count_total_u += stat_u.frequency
+            percent_total += stat.percent
+            percent_total_u += stat_u.percent
+          %>
+
+          <tr>
+            <% ans = stat_u.answer %>
+            <td><%= (ans.empty? ? '<span class="link" data-toggle="tooltip" title="There were no options checked for this question">Nothing marked</span>' : ans).html_safe  %></td>
+            <td><%= stat.frequency %></td>
+            <td><%= stat.percent.round(1) %>%</td>
+            <td>
+              <%= tag :div, 'data-chart-data'=>stat.to_json, :class=>'ls-chart' %>
+            </td>
+            <td><%= stat_u.frequency %></td>
+            <td><%= stat_u.percent.round(1) %>%</td>
+            <td>
+              <%= tag :div, 'data-chart-data'=>stat_u.to_json, :class=>'ls-chart' %>
+            </td>
+          </tr>
+        <% end %>
+        <tr class="totals-row">
+          <td>Totals:</td>
+          <td><%= count_total     %></td>
+          <td colspan="2"></td>
+          <td></td>
+          <td><%= count_total_u   %></td>
+          <td colspan="2"></td>
+          <td></td>
         </tr>
-      <% end %>
-      <tr class="totals-row">
-        <td>Totals:</td>
-        <td><%= count_total     %></td>
-        <td colspan="2"></td>
-        <td></td>
-        <td><%= count_total_u   %></td>
-        <td colspan="2"></td>
-        <td></td>
-      </tr>
 
       </tbody>
     </table>

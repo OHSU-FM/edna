@@ -40,19 +40,7 @@
         </td>
         <td colspan="2"></td>
     </tr>
-    <% if gcounter <= 1 %>
-        <%= render :partial=>'ls_reports/filter/lime_group_rows', :locals=>{:group=>group, :qcounter=>qcounter}%>
-    <% else %>
-        <tr id="blank-gid<%= group.gid %>" class="blank-gid partial-container"> 
-            <td colspan="14">
-                <div style="margin: 0 auto;text-align:center;">
-                    <%= link_to image_tag('spinner-mini.gif'),
-                        part_of_ls_report_path(:view_type=>:filter, :sid=>@sid, :gid=>group.gid, :agg=>@agg, :pk=>@pk),
-                        :data=>{:order=>gcounter}, :class=>'partial-url' %> 
-                </div>
-            </td>
-        </tr>
-    <% end %>
+    <%= render :partial=>'ls_reports/filter/lime_group_rows', :locals=>{:group=>group, :qcounter=>qcounter}%>
     <% gcounter += 1 %>
     <% qcounter += group.parent_questions.count %>
   <% end %>

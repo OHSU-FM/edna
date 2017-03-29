@@ -507,6 +507,7 @@ module LimeExt::ResponseLoaders
         end
         return @data
       end
+
     end
 
     ##
@@ -535,7 +536,7 @@ module LimeExt::ResponseLoaders
       end
 
       private
-      ##
+
       # Get the column names for status questions
       #   - Each sub_question has two status_questions
       def status_question_names

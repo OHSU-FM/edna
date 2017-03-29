@@ -153,7 +153,7 @@ module EdnaConsole
       attrs = questions.map{|question|"\"#{question.attribute_name}\""}.uniq
       return "SELECT
       #{attrs.join(',')}, year
-FROM (#{group_query_builder groups.first}) AS #{group_alias}"
+            FROM (#{group_query_builder groups.first}) AS #{group_alias}"
     end
 
     ##
@@ -161,9 +161,9 @@ FROM (#{group_query_builder groups.first}) AS #{group_alias}"
     def multi_query_builder
 
       query = "
-SELECT
+                SELECT
       #{select_arr.join(",\n\t")}
-FROM \t#{groups.first.parent_table}
+                FROM \t#{groups.first.parent_table}
       #{pk_join_arr.join("\n")}
       #{fk_join_arr.join("\n")};"
 
