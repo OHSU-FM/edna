@@ -41,17 +41,7 @@
           <td>
             Response Rate
           </td>
-          <td>
-            <%= @lime_survey.response_percent.round(2) %> %
-          </td>
-          <td>
-            <%= @lime_survey_unfiltered.response_percent.round(2) %> %
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Completion Rate
-          </td>
+          <!-- these are completion rates as the method name suggests, but elaine thinks that would be confusing, so we're calling them response rates. -->
           <td>
             <%= @lime_survey.completion_percent.round(2) %> %
           </td>
