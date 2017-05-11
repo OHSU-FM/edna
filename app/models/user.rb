@@ -20,9 +20,10 @@ class User < ActiveRecord::Base
   has_many :permission_ls_groups, :through=>:permission_group
   has_many :user_externals, :dependent=>:delete_all, :inverse_of=>:user
   has_one :dashboard, :dependent=>:delete
-  has_many :dashboard_widgets, :through=>:dashboard, :dependent=>:delete_all
   has_many :question_widgets, :dependent=>:delete_all
   belongs_to :lime_user, :foreign_key=>:username, :primary_key=>:users_name
+
+  delegate :dashboard_widgets, to: :dashboard
 
   include EdnaConsole::UserHasAssignments
 
