@@ -8,8 +8,8 @@
         <thead>
             <tr>
                 <th colspan="2"><h5><%= title if defined? title %></h5></th>
-                <th colspan="3"><%= @fm.filters_equal ? 'All' : 'This' %> <%= @filtered_label %></th>
-                <th colspan="3">All <%= @unfiltered_label %></th>
+                <th colspan="3">Your Aggregate</th>
+                <th colspan="3">Population Aggregate</th>
             </tr>
             <tr>
                 <th>Value</th>
@@ -23,15 +23,15 @@
             </tr>
         </thead>
         <tbody>
-            <% 
+            <%
                 count_total = 0
                 count_total_u = 0
                 percent_total = 0
                 percent_total_u = 0
             %>
 
-            <% stats_u.categorical_stats.each do |cat_u| %> 
-                <% 
+            <% stats_u.categorical_stats.each do |cat_u| %>
+                <%
                     cat = stats.find_category_pair cat_u
                     next if cat_u.is_err && cat.frequency == 0 && cat_u.frequency == 0
                     count_total += cat.frequency
